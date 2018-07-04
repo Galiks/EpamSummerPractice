@@ -1,0 +1,12 @@
+E:\Programs\Projects Visual Studio\ConsoleApp1\ConsoleApp1.DAL.Interface\bin\Debug\netstandard2.0\ConsoleApp1.DAL.Interface.deps.json
+E:\Programs\Projects Visual Studio\ConsoleApp1\ConsoleApp1.DAL.Interface\bin\Debug\netstandard2.0\ConsoleApp1.DAL.Interface.dll
+E:\Programs\Projects Visual Studio\ConsoleApp1\ConsoleApp1.DAL.Interface\bin\Debug\netstandard2.0\ConsoleApp1.DAL.Interface.pdb
+E:\Programs\Projects Visual Studio\ConsoleApp1\ConsoleApp1.DAL.Interface\bin\Debug\netstandard2.0\ConsoleApp1.Entities.dll
+E:\Programs\Projects Visual Studio\ConsoleApp1\ConsoleApp1.DAL.Interface\bin\Debug\netstandard2.0\ConsoleApp1.Entities.pdb
+E:\Programs\Projects Visual Studio\ConsoleApp1\ConsoleApp1.DAL.Interface\obj\Debug\netstandard2.0\ConsoleApp1.DAL.Interface.csprojAssemblyReference.cache
+E:\Programs\Projects Visual Studio\ConsoleApp1\ConsoleApp1.DAL.Interface\obj\Debug\netstandard2.0\ConsoleApp1.DAL.Interface.csproj.CoreCompileInputs.cache
+E:\Programs\Projects Visual Studio\ConsoleApp1\ConsoleApp1.DAL.Interface\obj\Debug\netstandard2.0\ConsoleApp1.DAL.Interface.AssemblyInfoInputs.cache
+E:\Programs\Projects Visual Studio\ConsoleApp1\ConsoleApp1.DAL.Interface\obj\Debug\netstandard2.0\ConsoleApp1.DAL.Interface.AssemblyInfo.cs
+E:\Programs\Projects Visual Studio\ConsoleApp1\ConsoleApp1.DAL.Interface\obj\Debug\netstandard2.0\ConsoleApp1.DAL.Interface.csproj.CopyComplete
+E:\Programs\Projects Visual Studio\ConsoleApp1\ConsoleApp1.DAL.Interface\obj\Debug\netstandard2.0\ConsoleApp1.DAL.Interface.dll
+E:\Programs\Projects Visual Studio\ConsoleApp1\ConsoleApp1.DAL.Interface\obj\Debug\netstandard2.0\ConsoleApp1.DAL.Interface.pdb
