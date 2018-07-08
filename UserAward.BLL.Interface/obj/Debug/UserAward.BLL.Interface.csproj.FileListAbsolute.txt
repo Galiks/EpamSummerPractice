@@ -1,0 +1,9 @@
+E:\Programs\Projects Visual Studio\UserAward\UserAward.BLL.Interface\bin\Debug\UserAward.BLL.Interface.dll
+E:\Programs\Projects Visual Studio\UserAward\UserAward.BLL.Interface\bin\Debug\UserAward.BLL.Interface.pdb
+E:\Programs\Projects Visual Studio\UserAward\UserAward.BLL.Interface\bin\Debug\Entity.dll
+E:\Programs\Projects Visual Studio\UserAward\UserAward.BLL.Interface\bin\Debug\Entity.pdb
+E:\Programs\Projects Visual Studio\UserAward\UserAward.BLL.Interface\obj\Debug\UserAward.BLL.Interface.csprojAssemblyReference.cache
+E:\Programs\Projects Visual Studio\UserAward\UserAward.BLL.Interface\obj\Debug\UserAward.BLL.Interface.csproj.CoreCompileInputs.cache
+E:\Programs\Projects Visual Studio\UserAward\UserAward.BLL.Interface\obj\Debug\UserAward.BLL.Interface.csproj.CopyComplete
+E:\Programs\Projects Visual Studio\UserAward\UserAward.BLL.Interface\obj\Debug\UserAward.BLL.Interface.dll
+E:\Programs\Projects Visual Studio\UserAward\UserAward.BLL.Interface\obj\Debug\UserAward.BLL.Interface.pdb

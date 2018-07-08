@@ -1,0 +1,11 @@
+E:\Programs\Projects Visual Studio\UserAward\UserAward.DAL.DAO\bin\Debug\UserAward.DAL.DAO.dll
+E:\Programs\Projects Visual Studio\UserAward\UserAward.DAL.DAO\bin\Debug\UserAward.DAL.DAO.pdb
+E:\Programs\Projects Visual Studio\UserAward\UserAward.DAL.DAO\bin\Debug\Entity.dll
+E:\Programs\Projects Visual Studio\UserAward\UserAward.DAL.DAO\bin\Debug\UserAward.DAL.Interface.dll
+E:\Programs\Projects Visual Studio\UserAward\UserAward.DAL.DAO\bin\Debug\Entity.pdb
+E:\Programs\Projects Visual Studio\UserAward\UserAward.DAL.DAO\bin\Debug\UserAward.DAL.Interface.pdb
+E:\Programs\Projects Visual Studio\UserAward\UserAward.DAL.DAO\obj\Debug\UserAward.DAL.DAO.csprojAssemblyReference.cache
+E:\Programs\Projects Visual Studio\UserAward\UserAward.DAL.DAO\obj\Debug\UserAward.DAL.DAO.csproj.CoreCompileInputs.cache
+E:\Programs\Projects Visual Studio\UserAward\UserAward.DAL.DAO\obj\Debug\UserAward.DAL.DAO.csproj.CopyComplete
+E:\Programs\Projects Visual Studio\UserAward\UserAward.DAL.DAO\obj\Debug\UserAward.DAL.DAO.dll
+E:\Programs\Projects Visual Studio\UserAward\UserAward.DAL.DAO\obj\Debug\UserAward.DAL.DAO.pdb
