@@ -1,0 +1,33 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=divice-width"/>
+    <title>Пользователи</title>
+</head>
+<body>
+    <div>
+        <h3>Список пользователей</h3>
+        <table>
+            <tr>
+                <td><p>Имя</p></td>
+                <td><p>Дата рождения</p></td>
+                <td><p>Возраст</p></td>
+            </tr>            
+            @foreach (var item in ViewBag.Users)
+            {
+                <tr>
+                    <td><p>@item.Name</p></td>
+                    <td><p>@item.Birthday</p></td>
+                    <td><p>@item.Age</p></td>
+                    <td><p><a href="/Home/Rewarding/@item.UserId">Наградить</a></p></td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>

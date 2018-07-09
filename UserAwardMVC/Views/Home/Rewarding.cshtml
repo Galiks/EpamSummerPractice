@@ -1,0 +1,44 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Rewarding</title>
+</head>
+<body>
+    <div>
+        <h3>Награждение</h3>
+        <form method="post" action="">
+            <input type="hidden" value="@ViewBag.UserId" name="UserId" />
+            <table>
+                <tr>
+                    <td>
+                        <p>Введите название медали</p>
+                    </td>
+                    <td>
+                        <input type="text" name="Title" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Введите описание награды</p>
+                    </td>
+                    <td>
+                        <input type="text" name="Description" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="Наградить" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
