@@ -183,7 +183,7 @@ namespace UserAward.DAL.DAO
             }
         }
 
-        public IEnumerable<User> GetUserByWord(string wanredWord)
+        public IEnumerable<User> GetUserByWord(string wantedWord)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
@@ -193,9 +193,9 @@ namespace UserAward.DAL.DAO
 
                 command.CommandText = "GetUserByWord";
 
-                var word = new SqlParameter("@WORD", SqlDbType.Char)
+                var word = new SqlParameter("@WORD", SqlDbType.VarChar)
                 {
-                    Value = wanredWord
+                    Value = wantedWord
                 };
 
                 command.Parameters.Add(word);
@@ -250,6 +250,36 @@ namespace UserAward.DAL.DAO
             }
         }
 
+        public int Reawrding(User user, int idAward)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                var command = connection.CreateCommand();
+
+                command.CommandType = CommandType.StoredProcedure;
+                command.CommandText = "Rewarding";
+
+                var idForUser = new SqlParameter("@ID_user", SqlDbType.Int)
+                {
+                    Value = user.IdUser
+                };
+
+                command.Parameters.Add(idForUser);
+
+                var idForAward = new SqlParameter("@ID_award", SqlDbType.Int)
+                {
+                    Value = idAward
+                };
+
+                command.Parameters.Add(idForAward);
+
+                connection.Open();
+
+                return (int)(decimal)command.ExecuteScalar();
+
+            }
+        }
+
         public int UpdateUser(int wantedId, string wantedName, DateTime wantedBirthday, int wantedAge)
         {
             using (var connection = new SqlConnection(_connectionString))
@@ -290,6 +320,37 @@ namespace UserAward.DAL.DAO
                 connection.Open();
 
                 return (int)(decimal)command.ExecuteNonQuery();
+            }
+        }
+        
+        public IDictionary<int, string> GetAwardFromUserAward(int idUser)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                Dictionary<int, string> result = new Dictionary<int, string>();
+
+                var command = connection.CreateCommand();
+
+                command.CommandType = CommandType.StoredProcedure;
+                command.CommandText = "GetAwardFromUser_Award";
+
+                var id = new SqlParameter("@ID_USER", SqlDbType.Int)
+                {
+                    Value = idUser
+                };
+
+                command.Parameters.Add(id);
+
+                connection.Open();
+
+                var reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    result.Add( (int)reader["id_award"], (string)reader["Title"]);
+                }
+
+                return result;
             }
         }
     }

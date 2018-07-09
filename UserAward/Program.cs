@@ -61,12 +61,69 @@ namespace UserAward
             //Console.Write("DESC: ");
             //var desc = Console.ReadLine();
 
-            //awardLogic.AddAward(title, desc); 
+            //awardLogic.AddAward(title, desc);
 
-            foreach (var item in awardLogic.GetAwards())
+            //awardLogic.AddAward("Yellow Boy", null);
+
+            //foreach (var item in awardLogic.GetAwards())
+            //{
+            //    Console.WriteLine($"{item.IdAward} : {item.Title} : {item.Description}");
+            //}
+
+            //Console.WriteLine();
+
+            //foreach (var item in awardLogic.GetAwardByTitle("bad Boy"))
+            //{
+            //    Console.WriteLine(item.Title);
+            //}
+
+            //foreach (var item in awardLogic.GetAwardByWord("y"))
+            //{
+            //    Console.WriteLine($"{item.Title}");
+            //}
+
+            //foreach (var item in awardLogic.GetAwardByLetter('G'))
+            //{
+            //    Console.WriteLine($"{item.IdAward} : {item.Title}");
+            //}
+
+            //Console.WriteLine(awardLogic.GetAwardById(1).Title);
+
+            //awardLogic.DeleteAward(6);
+
+            //foreach (var item in awardLogic.GetAwards())
+            //{
+            //    Console.WriteLine($"{item.IdAward} : {item.Title} : {item.Description}");
+            //}
+            #endregion
+
+            #region testForRewarding
+            //foreach (var item in awardLogic.GetAwards())
+            //{
+            //    Console.WriteLine($"{item.IdAward} : {item.Title} : {item.Description}");
+            //}
+
+            //Console.WriteLine();
+
+            //foreach (var item in userLogic.GetUsers())
+            //{
+            //    Console.WriteLine($"{item.IdUser} : {item.Name} : {item.Age}");
+            //}
+
+            //userLogic.Rewarding(1, 1);
+            //userLogic.Rewarding(1, 2);
+
+            var user = userLogic.GetUserById(1);
+
+            Console.WriteLine($"User {user.Name} have awards: ");
+            foreach (var item in userLogic.GetAwardFromUserAward(user))
             {
-                Console.WriteLine($"{item.IdAward} : {item.Title} : {item.Description}");
+                Console.WriteLine($"{item.Key} : {item.Value}");
             }
+
+
+
+            Console.WriteLine();
             #endregion
 
             Console.ReadKey();

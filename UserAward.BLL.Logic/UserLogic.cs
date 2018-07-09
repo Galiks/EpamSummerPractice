@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UserAward.DAL.DAO;
+using UserAward.DAL.Interface;
 
 namespace UserAward.BLL.Logic
 {
@@ -65,9 +66,7 @@ namespace UserAward.BLL.Logic
 
         public bool DeleteUser(int id)
         {
-            var userForDelete = GetUserById(id);
-
-            if (userForDelete != null)
+            if (GetUserById(id) != null)
             {
                 _userDao.DeleteUser(id);
 
@@ -86,17 +85,17 @@ namespace UserAward.BLL.Logic
 
         public IEnumerable<User> GetUserByName(string name)
         {
-            return _userDao.GetUserByName(name);
+            return _userDao.GetUserByName(name).ToList();
         }
 
         public IEnumerable<User> GetUserByLetter(char letter)
         {
-            return _userDao.GetUserByLetter(letter);
+            return _userDao.GetUserByLetter(letter).ToList();
         }
 
         public IEnumerable<User> GetUserByWord(string word)
         {
-            return _userDao.GetUserByWord(word);
+            return _userDao.GetUserByWord(word).ToList();
         }
 
         public bool UpdateUser(int id, string name, string birthday)
@@ -111,6 +110,30 @@ namespace UserAward.BLL.Logic
             {
                 return false;
             }
+        }
+
+        public bool Rewarding(int idUser, int idAward)
+        {
+            var user = GetUserById(idUser);
+
+            if((user != null))
+            {
+                //_userDao.Reawrding(user, idAward);
+
+                _userDao.Reawrding(user, idAward);
+                
+                return true;
+
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public IDictionary<int, string> GetAwardFromUserAward(User user)
+        {
+            return _userDao.GetAwardFromUserAward(user.IdUser);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -48,29 +49,162 @@ namespace UserAward.DAL.DAO
             }
         }
 
-        public int DeleteAward(int id)
+        public int DeleteAward(int wantedId)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                var command = connection.CreateCommand();
+
+                command.CommandType = CommandType.StoredProcedure;
+                command.CommandText = "DeleteAward";
+
+                var id = new SqlParameter("@ID", SqlDbType.Int)
+                {
+                    Value = wantedId
+                };
+
+                command.Parameters.Add(id);
+
+                connection.Open();
+
+                return (int)command.ExecuteNonQuery();
+            }
         }
 
-        public Award GetAwardById(int id)
+        public Award GetAwardById(int wantedId)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                var command = connection.CreateCommand();
+
+                command.CommandType = CommandType.StoredProcedure;
+                command.CommandText = "GetAwardByID";
+
+                var id = new SqlParameter("@ID", SqlDbType.Int)
+                {
+                    Value = wantedId
+                };
+
+                command.Parameters.Add(id);
+
+                connection.Open();
+
+                var reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    return new Award
+                    {
+                        IdAward = (int)reader["id_award"],
+                        Title = (string)reader["Title"],
+                        Description = (string)reader["Description"],
+                    };
+                }
+            }
+
+            return null;
         }
 
-        public IEnumerable<Award> GetAwardByLetter(char letter)
+        public IEnumerable<Award> GetAwardByLetter(char wantedLetter)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                var command = connection.CreateCommand();
+
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                command.CommandText = "GetAwardByLetter";
+
+                var letter = new SqlParameter("@LETTER", SqlDbType.Char)
+                {
+                    Value = wantedLetter
+                };
+
+                command.Parameters.Add(letter);
+
+                connection.Open();
+
+                var reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    yield return new Award
+                    {
+                        IdAward = (int)reader["id_award"],
+                        Title = (string)reader["Title"],
+                        Description = (string)reader["Description"]
+                    };
+                }
+
+            }
         }
 
-        public IEnumerable<Award> GetAwardByName(string name)
+        public IEnumerable<Award> GetAwardByTitle(string title)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                var command = connection.CreateCommand();
+
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                command.CommandText = "GetAwardByTitle";
+
+                var name = new SqlParameter("@TITLE", SqlDbType.VarChar)
+                {
+                    Value = title
+                };
+
+                command.Parameters.Add(name);
+
+                connection.Open();
+
+                var reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    yield return new Award
+                    {
+                        IdAward = (int)reader["id_award"],
+                        Title = (string)reader["Title"],
+                        Description = (string)reader["Description"]
+                    };
+                }
+
+            }
         }
 
-        public IEnumerable<Award> GetAwardByWord(string word)
+        public IEnumerable<Award> GetAwardByWord(string wantedWord)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                var command = connection.CreateCommand();
+
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                command.CommandText = "GetAwardByWord";
+
+                var word = new SqlParameter("@WORD", SqlDbType.VarChar)
+                {
+                    Value = wantedWord
+                };
+
+                command.Parameters.Add(word);
+
+                connection.Open();
+
+                var reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    yield return new Award
+                    {
+                        IdAward = (int)reader["id_award"],
+                        Title = (string)reader["Title"],
+                        Description = (string)reader["Description"]
+                    };
+                }
+
+            }
         }
 
         public IEnumerable<Award> GetAwards()
@@ -98,9 +232,40 @@ namespace UserAward.DAL.DAO
             }
         }
 
-        public int UpdateAward(int id, string title, string description)
+        public int UpdateAward(int wantedId, string wantedTitle, string wantedDescription)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                var command = connection.CreateCommand();
+
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.CommandText = "UpdateAward";
+
+                var id = new SqlParameter("@ID", SqlDbType.Int)
+                {
+                    Value = wantedId
+                };
+
+                command.Parameters.Add(id);
+
+                var title = new SqlParameter("@TITLE", SqlDbType.VarChar)
+                {
+                    Value = wantedTitle
+                };
+
+                command.Parameters.Add(title);
+
+                var description = new SqlParameter("@DESCRIPTION", SqlDbType.DateTime)
+                {
+                    Value = wantedDescription
+                };
+
+                command.Parameters.Add(description);
+
+                connection.Open();
+
+                return (int)(decimal)command.ExecuteNonQuery();
+            }
         }
     }
 }

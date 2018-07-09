@@ -210,4 +210,160 @@ BEGIN
       ,[Description]
   FROM [Olympics].[dbo].[Award]
 END
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE UpdateAward
+	@ID int,
+	@TITLE varchar(50),
+	@DESCRIPTION varchar(300) = 'Описание отсутствует'
+AS
+BEGIN
+	UPDATE Olympics.dbo.Award
+	SET Title = @TITLE,
+	[Description] = @DESCRIPTION
+	WHERE id_award = @ID
+END
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE GetAwardByID
+	@ID int
+AS
+BEGIN
+	SELECT [id_award]
+      ,[Title]
+      ,[Description]
+  FROM [Olympics].[dbo].[Award]
+  WHERE id_award = @ID
+END
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE DeleteAward 
+	@ID int
+AS
+BEGIN
+	DELETE FROM [dbo].[Award]
+      WHERE id_award = @ID
+
+	SELECT SCOPE_IDENTITY()
+END
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE GetAwardByLetter 
+	@LETTER char(1)
+AS
+BEGIN
+	SELECT [id_award]
+      ,[Title]
+      ,[Description]
+  FROM [Olympics].[dbo].[Award]
+  WHERE [Title] LIKE @LETTER + '%'
+END
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Pasha>
+-- Create date: <09.07.2018 15:20>
+-- Description:	<>
+-- =============================================
+CREATE PROCEDURE GetAwardByWord
+	@WORD varchar(200)
+AS
+BEGIN
+	SELECT TOP (1000) [id_award]
+      ,[Title]
+      ,[Description]
+	FROM [Olympics].[dbo].[Award]
+	WHERE [Title] LIKE (@WORD+'%'+@WORD)
+END
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE GetAwardByTitle
+	@TITLE varchar(50)
+AS
+BEGIN
+	SELECT [id_award]
+      ,[Title]
+      ,[Description]
+  FROM [Olympics].[dbo].[Award]
+  WHERE [Title] LIKE @TITLE
+END
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [dbo].[Rewarding]
+	@ID_user int,
+	@ID_award int
+AS
+BEGIN
+		INSERT INTO [dbo].[User_Award]
+           ([id_user]
+           ,[id_award])
+     VALUES
+           (@ID_user
+           ,@ID_award)
+
+	SELECT SCOPE_IDENTITY()
+END
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [dbo].[GetAwardFromUser_Award]
+	@ID_USER int
+AS
+BEGIN
+	SELECT UA.id_award,
+	A.Title
+	FROM User_Award as UA
+	JOIN Award AS A ON UA.id_award = A.id_award
+	WHERE id_user = @ID_USER
+END
 

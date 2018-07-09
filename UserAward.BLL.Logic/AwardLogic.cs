@@ -45,11 +45,67 @@ namespace UserAward.BLL.Logic
             }
         }
 
-        
+        public bool DeleteAward(int id)
+        {
+            if (_awardDao.GetAwardById(id) != null)
+            {
+                _awardDao.DeleteAward(id);
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public Award GetAwardById(int id)
+        {
+            return _awardDao.GetAwardById(id);
+        }
+
+        public IEnumerable<Award> GetAwardByLetter(char letter)
+        {
+            return _awardDao.GetAwardByLetter(letter).ToList();
+        }
+
+        public IEnumerable<Award> GetAwardByTitle(string title)
+        {
+            return _awardDao.GetAwardByTitle(title).ToList();
+        }
+
+        public IEnumerable<Award> GetAwardByWord(string word)
+        {
+            return _awardDao.GetAwardByWord(word);
+        }
 
         public IEnumerable<Award> GetAwards()
         {
             return _awardDao.GetAwards().ToList();
+        }
+
+        //Добавить проверку на существование награды!
+        public bool UpdateAward(int id, string title, string description)
+        {
+            if (!String.IsNullOrEmpty(title) && GetAwardById(id) != null)
+            {
+                if (description != null)
+                {
+                    _awardDao.UpdateAward(id, title, description);
+
+                    return true;
+                }
+                else
+                {
+                    _awardDao.UpdateAward(id, title, null);
+
+                    return true;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private int SetIdAward()

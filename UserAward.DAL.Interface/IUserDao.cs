@@ -14,5 +14,7 @@ namespace UserAward.DAL.DAO
         IEnumerable<User> GetUserByWord(string word);
         IEnumerable<User> GetUserByName(string name);
         int UpdateUser(int id, string name, DateTime birthday, int age);
+        int Reawrding(User user, int idAward);
+        IDictionary<int, string> GetAwardFromUserAward(int idUser);
     }
 }

@@ -8,11 +8,16 @@ namespace Entity
 {
     public class User
     {
+        public User()
+        {
+            AwardList = new List<int>();
+        }
+
         public int IdUser { get; set; }
         public string Name { get; set; }
         public DateTime Birthday { get; set; }
         public int Age { get; set; }
-        public IList<Award> AwardList { get; set; }
+        public IList<int> AwardList { get; set; }
 
         public override int GetHashCode()
         {

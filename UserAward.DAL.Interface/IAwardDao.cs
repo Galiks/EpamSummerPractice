@@ -15,7 +15,7 @@ namespace UserAward.DAL.Interface
         Award GetAwardById(int id);
         IEnumerable<Award> GetAwardByLetter(char letter);
         IEnumerable<Award> GetAwardByWord(string word);
-        IEnumerable<Award> GetAwardByName(string name);
+        IEnumerable<Award> GetAwardByTitle(string title);
         int UpdateAward(int id, string title, string description);
     }
 }
