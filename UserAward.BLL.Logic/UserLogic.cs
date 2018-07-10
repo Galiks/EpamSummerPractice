@@ -85,22 +85,43 @@ namespace UserAward.BLL.Logic
 
         public IEnumerable<User> GetUserByName(string name)
         {
-            return _userDao.GetUserByName(name).ToList();
+            if (!String.IsNullOrEmpty(name))
+            {
+                return _userDao.GetUserByName(name).ToList();
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public IEnumerable<User> GetUserByLetter(char letter)
         {
-            return _userDao.GetUserByLetter(letter).ToList();
+            if (Char.IsLetter(letter))
+            { 
+                return _userDao.GetUserByLetter(letter).ToList();
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public IEnumerable<User> GetUserByWord(string word)
         {
-            return _userDao.GetUserByWord(word).ToList();
+            if (!String.IsNullOrEmpty(word))
+            {
+                return _userDao.GetUserByWord(word).ToList();
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public bool UpdateUser(int id, string name, string birthday)
         {
-            if (DateTime.TryParse(birthday, out DateTime dateTime) && (GetUserById(id) != null))
+            if (DateTime.TryParse(birthday, out DateTime dateTime) && (GetUserById(id) != null) && (GetUserById(id) != null))
             {
                 _userDao.UpdateUser(id, name, DateTime.Parse(birthday), SetAge(DateTime.Parse(birthday)));
 
@@ -112,18 +133,26 @@ namespace UserAward.BLL.Logic
             }
         }
 
-        public bool Rewarding(int idUser, int idAward)
+
+        //доработать исключение
+        public bool Rewarding(string idUser, string idAward)
         {
-            var user = GetUserById(idUser);
-
-            if((user != null))
+            if ((Int32.TryParse(idUser, out int number)) && (Int32.TryParse(idAward, out int number2)))
             {
-                //_userDao.Reawrding(user, idAward);
+                var user = GetUserById(Int32.Parse(idUser));
 
-                _userDao.Reawrding(user, idAward);
-                
-                return true;
+                if ((user != null))
+                {
 
+                    _userDao.Reawrding(user, Int32.Parse(idAward));
+
+                    return true;
+
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {

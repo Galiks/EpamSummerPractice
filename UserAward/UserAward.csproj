@@ -61,6 +61,10 @@
       <Project>{D1610CFB-6205-46FC-9464-3677221CA3B9}</Project>
       <Name>UserAward.BLL.Interface</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UserAward.BLL.Logic\UserAward.BLL.Logic.csproj">
+      <Project>{4e52ffb9-e135-4e50-8ffe-3acf0fd6fad5}</Project>
+      <Name>UserAward.BLL.Logic</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

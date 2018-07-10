@@ -8,20 +8,15 @@ namespace Entity
 {
     public class User
     {
-        public User()
-        {
-            AwardList = new List<int>();
-        }
-
         public int IdUser { get; set; }
         public string Name { get; set; }
         public DateTime Birthday { get; set; }
         public int Age { get; set; }
-        public IList<int> AwardList { get; set; }
+        //public IList<int> AwardList { get; set; }
 
         public override int GetHashCode()
         {
-            return Name.GetHashCode() ^ Birthday.GetHashCode() ^ Age.GetHashCode() ^ AwardList.GetHashCode();
+            return Name.GetHashCode() ^ Birthday.GetHashCode() ^ Age.GetHashCode();
         }
 
         public override bool Equals(object obj)
@@ -31,7 +26,7 @@ namespace Entity
                 throw new ArgumentException("Ooops. Argument Exception");
             }
 
-            return value.Name.Equals(this.Name) ^ value.Birthday.Equals(this.Birthday) ^ value.Age.Equals(this.Age) ^ value.AwardList.Equals(this.AwardList);
+            return value.Name.Equals(this.Name) ^ value.Birthday.Equals(this.Birthday) ^ value.Age.Equals(this.Age);
         }
     }
 }

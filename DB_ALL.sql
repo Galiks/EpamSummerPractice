@@ -15,15 +15,17 @@ GO
 
 CREATE TABLE [User] (
 	id_user int IDENTITY(1,1) NOT NULL CONSTRAINT [PK_User] primary key,
-	[Name] varchar(100) NOT NULL,
+	[Name] varchar(50) NOT NULL,
 	Birthday date NOT NULL,
-	Age int NOT NULL
+	Age int NOT NULL,
+	--[User's Photo] varbinary
 )
 GO
 CREATE TABLE Award (
 	id_award int IDENTITY(1,1) NOT NULL CONSTRAINT [PK_Award] primary key,
 	Title varchar(50) NOT NULL,
-	[Description] varchar(300)
+	[Description] varchar(250),
+	--[Award's Photo] varbinary NOT NULL
 )
 GO
 
@@ -51,7 +53,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-Create PROCEDURE AddUser 
+Create PROCEDURE AddUser --1
 	@Name varchar(50),
 	@Birthday date,
 	@Age int
@@ -72,7 +74,7 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROCEDURE DeleteUser
+CREATE PROCEDURE DeleteUser --2
 	@ID int
 AS
 BEGIN
@@ -88,7 +90,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROCEDURE GetUserByID
+CREATE PROCEDURE GetUserByID --3
 	@ID int
 AS
 BEGIN
@@ -106,7 +108,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROCEDURE GetUserByName
+CREATE PROCEDURE GetUserByName --4
 	@NAME varchar(200)
 AS
 BEGIN
@@ -125,7 +127,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROCEDURE GetUserByLetter
+CREATE PROCEDURE GetUserByLetter --5
 	@LETTER char
 AS
 BEGIN
@@ -143,7 +145,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROCEDURE GetUserByWord
+CREATE PROCEDURE GetUserByWord--6
 	@WORD varchar(200)
 AS
 BEGIN
@@ -161,7 +163,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROCEDURE UpdateUser
+CREATE PROCEDURE UpdateUser--7
 	@ID int,
 	@NAME varchar(100),
 	@BIRTHDAY date,
@@ -181,7 +183,7 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROCEDURE AddAward 
+CREATE PROCEDURE AddAward --8
 	@TITLE varchar(50),
 	@DESCRIPTION varchar(300)
 AS
@@ -202,7 +204,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROCEDURE [dbo].[GetAwards]
+CREATE PROCEDURE [dbo].[GetAwards] --9
 AS
 BEGIN
 	SELECT [id_award]
@@ -217,7 +219,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROCEDURE UpdateAward
+CREATE PROCEDURE UpdateAward --10
 	@ID int,
 	@TITLE varchar(50),
 	@DESCRIPTION varchar(300) = 'Описание отсутствует'
@@ -235,7 +237,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROCEDURE GetAwardByID
+CREATE PROCEDURE GetAwardByID --11
 	@ID int
 AS
 BEGIN
@@ -252,7 +254,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROCEDURE DeleteAward 
+CREATE PROCEDURE DeleteAward --12
 	@ID int
 AS
 BEGIN
@@ -268,7 +270,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROCEDURE GetAwardByLetter 
+CREATE PROCEDURE GetAwardByLetter --13 
 	@LETTER char(1)
 AS
 BEGIN
@@ -289,7 +291,7 @@ GO
 -- Create date: <09.07.2018 15:20>
 -- Description:	<>
 -- =============================================
-CREATE PROCEDURE GetAwardByWord
+CREATE PROCEDURE GetAwardByWord --14
 	@WORD varchar(200)
 AS
 BEGIN
@@ -310,7 +312,7 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE GetAwardByTitle
+CREATE PROCEDURE GetAwardByTitle --15
 	@TITLE varchar(50)
 AS
 BEGIN
@@ -331,7 +333,7 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE [dbo].[Rewarding]
+CREATE PROCEDURE [dbo].[Rewarding] --16
 	@ID_user int,
 	@ID_award int
 AS
@@ -356,7 +358,7 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE [dbo].[GetAwardFromUser_Award]
+CREATE PROCEDURE [dbo].[GetAwardFromUser_Award] --17 
 	@ID_USER int
 AS
 BEGIN
