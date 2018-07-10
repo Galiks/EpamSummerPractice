@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище OlympicsModelContainer" CdmEntityContainer="OlympicsEntities1">
+    <EntitySetMapping Name="Awards">
+      <EntityTypeMapping TypeName="OlympicsModel.Award">
+        <MappingFragment StoreEntitySet="Award">
+          <ScalarProperty Name="id_award" ColumnName="id_award" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="AwardImage" ColumnName="AwardImage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="OlympicsModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="UserPhoto" ColumnName="UserPhoto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User_Award">
+      <EntityTypeMapping TypeName="OlympicsModel.User_Award">
+        <MappingFragment StoreEntitySet="User_Award">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+          <ScalarProperty Name="id_award" ColumnName="id_award" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="AddAward" FunctionName="Хранилище OlympicsModel.AddAward" />
+    <FunctionImportMapping FunctionImportName="AddUser" FunctionName="Хранилище OlympicsModel.AddUser" />
+    <FunctionImportMapping FunctionImportName="DeleteAward" FunctionName="Хранилище OlympicsModel.DeleteAward" />
+    <FunctionImportMapping FunctionImportName="DeleteUser" FunctionName="Хранилище OlympicsModel.DeleteUser" />
+    <FunctionImportMapping FunctionImportName="GetAwardByID" FunctionName="Хранилище OlympicsModel.GetAwardByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OlympicsModel.GetAwardByID_Result">
+          <ScalarProperty Name="id_award" ColumnName="id_award" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAwardByLetter" FunctionName="Хранилище OlympicsModel.GetAwardByLetter">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OlympicsModel.GetAwardByLetter_Result">
+          <ScalarProperty Name="id_award" ColumnName="id_award" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAwardByTitle" FunctionName="Хранилище OlympicsModel.GetAwardByTitle">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OlympicsModel.GetAwardByTitle_Result">
+          <ScalarProperty Name="id_award" ColumnName="id_award" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAwardByWord" FunctionName="Хранилище OlympicsModel.GetAwardByWord">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OlympicsModel.GetAwardByWord_Result">
+          <ScalarProperty Name="id_award" ColumnName="id_award" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAwardFromUser_Award" FunctionName="Хранилище OlympicsModel.GetAwardFromUser_Award">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OlympicsModel.GetAwardFromUser_Award_Result">
+          <ScalarProperty Name="id_award" ColumnName="id_award" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAwards" FunctionName="Хранилище OlympicsModel.GetAwards">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OlympicsModel.GetAwards_Result">
+          <ScalarProperty Name="id_award" ColumnName="id_award" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetUserByID" FunctionName="Хранилище OlympicsModel.GetUserByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OlympicsModel.GetUserByID_Result">
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetUserByLetter" FunctionName="Хранилище OlympicsModel.GetUserByLetter">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OlympicsModel.GetUserByLetter_Result">
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetUserByName" FunctionName="Хранилище OlympicsModel.GetUserByName">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OlympicsModel.GetUserByName_Result">
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetUserByWord" FunctionName="Хранилище OlympicsModel.GetUserByWord">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OlympicsModel.GetUserByWord_Result">
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Rewarding" FunctionName="Хранилище OlympicsModel.Rewarding" />
+    <FunctionImportMapping FunctionImportName="UpdateAward" FunctionName="Хранилище OlympicsModel.UpdateAward" />
+    <FunctionImportMapping FunctionImportName="UpdateUser" FunctionName="Хранилище OlympicsModel.UpdateUser" />
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,5 @@
+User Pasha32 with ID: 1 was born in 2000.12.4. His age is 21
+User Petr with ID: 2 was born in 1996.12.4. His age is 21
+User Alice with ID: 3 was born in 1997.12.4. His age is 20
+User Alex with ID: 4 was born in 1996.12.4. His age is 21
+User Alexandr with ID: 5 was born in 1962.6.20. His age is 56

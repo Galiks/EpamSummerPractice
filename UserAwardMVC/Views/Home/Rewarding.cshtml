@@ -13,7 +13,17 @@
 <body>
     <div>
         <h3>Награждение</h3>
-        <form method="post" action="">
+        @using (Html.BeginForm())
+        {
+            @Html.Hidden("UserId", ViewBag.Userid as string)
+            <p>Введите название медали: </p>
+            @Html.TextBox("Title", "Medal")
+            <p>Введите описание награды: </p>
+            @Html.TextBox("Description", "For nothing")
+            <p><input type="submit" value="Наградить"/></p>
+        }
+
+        @*<form method="post" action="">
             <input type="hidden" value="@ViewBag.UserId" name="UserId" />
             <table>
                 <tr>
@@ -38,7 +48,7 @@
                     </td>
                 </tr>
             </table>
-        </form>
+        </form>*@
     </div>
 </body>
 </html>

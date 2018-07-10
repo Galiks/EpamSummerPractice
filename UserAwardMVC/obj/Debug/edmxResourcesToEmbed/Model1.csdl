@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OlympicsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Award">
+    <Key>
+      <PropertyRef Name="id_award" />
+    </Key>
+    <Property Name="id_award" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="AwardImage" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <NavigationProperty Name="User_Award" Relationship="Self.FK_User_Award_TO_Award" FromRole="Award" ToRole="User_Award" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="id_user" />
+    </Key>
+    <Property Name="id_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Age" Type="Int32" Nullable="false" />
+    <Property Name="UserPhoto" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="User_Award" Relationship="Self.FK_User_Award_TO_User" FromRole="User" ToRole="User_Award" />
+  </EntityType>
+  <EntityType Name="User_Award">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_user" Type="Int32" Nullable="false" />
+    <Property Name="id_award" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Award" Relationship="Self.FK_User_Award_TO_Award" FromRole="User_Award" ToRole="Award" />
+    <NavigationProperty Name="User" Relationship="Self.FK_User_Award_TO_User" FromRole="User_Award" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_User_Award_TO_Award">
+    <End Role="Award" Type="Self.Award" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="User_Award" Type="Self.User_Award" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Award">
+        <PropertyRef Name="id_award" />
+      </Principal>
+      <Dependent Role="User_Award">
+        <PropertyRef Name="id_award" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Award_TO_User">
+    <End Role="User" Type="Self.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="User_Award" Type="Self.User_Award" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="id_user" />
+      </Principal>
+      <Dependent Role="User_Award">
+        <PropertyRef Name="id_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="OlympicsEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Awards" EntityType="Self.Award" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="User_Award" EntityType="Self.User_Award" />
+    <AssociationSet Name="FK_User_Award_TO_Award" Association="Self.FK_User_Award_TO_Award">
+      <End Role="Award" EntitySet="Awards" />
+      <End Role="User_Award" EntitySet="User_Award" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Award_TO_User" Association="Self.FK_User_Award_TO_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="User_Award" EntitySet="User_Award" />
+    </AssociationSet>
+    <FunctionImport Name="AddAward" ReturnType="Collection(Decimal)">
+      <Parameter Name="TITLE" Mode="In" Type="String" />
+      <Parameter Name="DESCRIPTION" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AddUser" ReturnType="Collection(Decimal)">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Birthday" Mode="In" Type="DateTime" />
+      <Parameter Name="Age" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteAward" ReturnType="Collection(Decimal)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteUser" ReturnType="Collection(Decimal)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetAwardByID" ReturnType="Collection(OlympicsModel.GetAwardByID_Result)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetAwardByLetter" ReturnType="Collection(OlympicsModel.GetAwardByLetter_Result)">
+      <Parameter Name="LETTER" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetAwardByTitle" ReturnType="Collection(OlympicsModel.GetAwardByTitle_Result)">
+      <Parameter Name="TITLE" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetAwardByWord" ReturnType="Collection(OlympicsModel.GetAwardByWord_Result)">
+      <Parameter Name="WORD" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetAwardFromUser_Award" ReturnType="Collection(OlympicsModel.GetAwardFromUser_Award_Result)">
+      <Parameter Name="ID_USER" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetAwards" ReturnType="Collection(OlympicsModel.GetAwards_Result)" />
+    <FunctionImport Name="GetUserByID" ReturnType="Collection(OlympicsModel.GetUserByID_Result)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetUserByLetter" ReturnType="Collection(OlympicsModel.GetUserByLetter_Result)">
+      <Parameter Name="LETTER" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetUserByName" ReturnType="Collection(OlympicsModel.GetUserByName_Result)">
+      <Parameter Name="NAME" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetUserByWord" ReturnType="Collection(OlympicsModel.GetUserByWord_Result)">
+      <Parameter Name="WORD" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Rewarding" ReturnType="Collection(Decimal)">
+      <Parameter Name="ID_user" Mode="In" Type="Int32" />
+      <Parameter Name="ID_award" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateAward">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="TITLE" Mode="In" Type="String" />
+      <Parameter Name="DESCRIPTION" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateUser">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="NAME" Mode="In" Type="String" />
+      <Parameter Name="BIRTHDAY" Mode="In" Type="DateTime" />
+      <Parameter Name="AGE" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="GetAwardByID_Result">
+    <Property Type="Int32" Name="id_award" Nullable="false" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="250" />
+  </ComplexType>
+  <ComplexType Name="GetAwardByLetter_Result">
+    <Property Type="Int32" Name="id_award" Nullable="false" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="250" />
+  </ComplexType>
+  <ComplexType Name="GetAwardByTitle_Result">
+    <Property Type="Int32" Name="id_award" Nullable="false" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="250" />
+  </ComplexType>
+  <ComplexType Name="GetAwardByWord_Result">
+    <Property Type="Int32" Name="id_award" Nullable="false" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="250" />
+  </ComplexType>
+  <ComplexType Name="GetAwardFromUser_Award_Result">
+    <Property Type="Int32" Name="id_award" Nullable="false" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="GetAwards_Result">
+    <Property Type="Int32" Name="id_award" Nullable="false" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="250" />
+  </ComplexType>
+  <ComplexType Name="GetUserByID_Result">
+    <Property Type="Int32" Name="id_user" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="Birthday" Nullable="false" />
+    <Property Type="Int32" Name="Age" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="GetUserByLetter_Result">
+    <Property Type="Int32" Name="id_user" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="Birthday" Nullable="false" />
+    <Property Type="Int32" Name="Age" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="GetUserByName_Result">
+    <Property Type="Int32" Name="id_user" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="Birthday" Nullable="false" />
+    <Property Type="Int32" Name="Age" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="GetUserByWord_Result">
+    <Property Type="Int32" Name="id_user" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="Birthday" Nullable="false" />
+    <Property Type="Int32" Name="Age" Nullable="false" />
+  </ComplexType>
+</Schema>
