@@ -12,7 +12,6 @@ namespace Entity
         public string Name { get; set; }
         public DateTime Birthday { get; set; }
         public int Age { get; set; }
-        //public IList<int> AwardList { get; set; }
 
         public override int GetHashCode()
         {

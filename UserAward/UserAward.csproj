@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,15 +50,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Entity\Entity.csproj">
       <Project>{F9BCA0F7-AC56-4E63-9297-CBC6D78049BE}</Project>
       <Name>Entity</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\UserAward.BLL.Container\UserAward.BLL.Container.csproj">
-      <Project>{F6587EF1-9D40-4347-8B3C-13AFB57C2A70}</Project>
-      <Name>UserAward.BLL.Container</Name>
     </ProjectReference>
     <ProjectReference Include="..\UserAward.BLL.Interface\UserAward.BLL.Interface.csproj">
       <Project>{D1610CFB-6205-46FC-9464-3677221CA3B9}</Project>
@@ -64,6 +64,10 @@
     <ProjectReference Include="..\UserAward.BLL.Logic\UserAward.BLL.Logic.csproj">
       <Project>{4e52ffb9-e135-4e50-8ffe-3acf0fd6fad5}</Project>
       <Name>UserAward.BLL.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UserAward.Container\UserAward.Container.csproj">
+      <Project>{2a485a3e-76b4-4133-b230-6df9b3d8615e}</Project>
+      <Name>UserAward.Container</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,23 +1,23 @@
-﻿using System;
+﻿using Ninject;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UserAward.BLL.Container;
 using UserAward.BLL.Interface;
 using UserAward.BLL.Logic;
+using UserAward.Container;
 
 namespace userAward
 {
     class Program
     {
-
-        private static IUserLogic userLogic = UserAwardContainer.UserLogic;
-        private static IAwardLogic awardLogic = UserAwardContainer.AwardLogic;
-
+        private static IUserLogic userLogic;
+        private static IAwardLogic awardLogic;
 
         static void Main(string[] args)
         {
+            #region Testing
             //var userLogic = userAwardContainer.userLogic;
             //var awardLogic = userAwardContainer.AwardLogic;
 
@@ -131,11 +131,26 @@ namespace userAward
 
 
             //Console.WriteLine();
+            #endregion 
             #endregion
 
-            StartMethod();
+            NinjectCommon.Registration();
+
+            userLogic = NinjectCommon.Kernel.Get<IUserLogic>();
+            awardLogic = NinjectCommon.Kernel.Get<IAwardLogic>();
+
+            //string test = "111";
+
+            //int number;
+
+            //Int32.TryParse(test, out number);
+
+            //Console.WriteLine(number);
+
+            //StartMethod();
 
         }
+
 
         private static void StartMethod()
         {
@@ -360,16 +375,12 @@ namespace userAward
                 switch (userEnter)
                 {
                     case "1":
-                        Console.Write($"Iser's ID: ");
+                        Console.Write($"User's ID: ");
                         var id_1 = Console.ReadLine();
-                        if (Int32.TryParse(id_1, out int number_1))
+                        var userById = userLogic.GetUserById(id_1);
+                        if (userById != null)
                         {
-                            var result_1 = userLogic.GetUserById(Int32.Parse(id_1));
-                            Console.WriteLine($"{result_1.IdUser} : {result_1.Name} : {result_1.Birthday.Year}-{result_1.Birthday.Month}-{result_1.Birthday.Day} : {result_1.Age}{Environment.NewLine}");
-                        }
-                        else
-                        {
-                            Console.WriteLine($"Incorrect ID");
+                            Console.WriteLine($"{userById.IdUser} : {userById.Name} : {userById.Birthday.Year}-{userById.Birthday.Month}-{userById.Birthday.Day} : {userById.Age}{Environment.NewLine}");
                         }
                         break;
                     case "2":

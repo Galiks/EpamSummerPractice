@@ -230,7 +230,7 @@ namespace UserAward.DAL.DAO
                                         ,[Name]
                                         ,[Birthday]
                                         ,[Age]
-                                        FROM [Olympics].[dbo].[User]";
+                                        FROM [Olympics2].[dbo].[User]";
 
                 connection.Open();
 

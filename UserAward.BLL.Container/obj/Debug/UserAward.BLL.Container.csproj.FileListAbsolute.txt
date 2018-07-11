@@ -15,3 +15,5 @@ E:\Programs\Projects Visual Studio\UserAward\UserAward.BLL.Container\obj\Debug\U
 E:\Programs\Projects Visual Studio\UserAward\UserAward.BLL.Container\obj\Debug\UserAward.BLL.Container.csproj.CopyComplete
 E:\Programs\Projects Visual Studio\UserAward\UserAward.BLL.Container\obj\Debug\UserAward.BLL.Container.dll
 E:\Programs\Projects Visual Studio\UserAward\UserAward.BLL.Container\obj\Debug\UserAward.BLL.Container.pdb
+E:\Programs\Projects Visual Studio\UserAward\UserAward.BLL.Container\bin\Debug\Ninject.dll
+E:\Programs\Projects Visual Studio\UserAward\UserAward.BLL.Container\bin\Debug\Ninject.xml

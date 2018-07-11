@@ -8,7 +8,7 @@ namespace UserAward.BLL.Logic
     {
         bool AddUser(string name, string birthday);
         bool DeleteUser(int id);
-        User GetUserById(int id);
+        User GetUserById<T>(T id);
         IEnumerable<User> GetUserByName(string name);
         IEnumerable<User> GetUserByLetter(char letter);
         IEnumerable<User> GetUserByWord(string word);

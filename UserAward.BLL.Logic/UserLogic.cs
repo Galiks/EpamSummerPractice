@@ -20,7 +20,7 @@ namespace UserAward.BLL.Logic
 
         public bool AddUser(string name, string birthday)
         {
-            if (DateTime.TryParse(birthday, out DateTime dateTime) && !String.IsNullOrEmpty(name))
+            if (!String.IsNullOrEmpty(name))
             {
                 var rightBirthday = DateTime.Parse(birthday);
 
@@ -76,11 +76,6 @@ namespace UserAward.BLL.Logic
             {
                 return false;
             }
-        }
-
-        public User GetUserById(int id)
-        {
-            return _userDao.GetUserById(id);
         }
 
         public IEnumerable<User> GetUserByName(string name)
@@ -163,6 +158,33 @@ namespace UserAward.BLL.Logic
         public IDictionary<int, string> GetAwardFromUserAward(User user)
         {
             return _userDao.GetAwardFromUserAward(user.IdUser);
+        }
+
+        public User GetUserById<T>(T id)
+        {
+            var result = _userDao.GetUserById(TryAndParse(id));
+            if (result != null)
+            {
+                return result;
+            }
+            else
+            {
+                Console.WriteLine($"Incorrect ID");
+                return null;
+            }
+
+        }
+
+        private int TryAndParse<T>(T id)
+        {
+            if ((id is int) && Int32.TryParse(id.ToString(), out int number))
+            {
+                return Int32.Parse(id.ToString());
+            }
+            else
+            {
+                return 0;
+            }
         }
     }
 }

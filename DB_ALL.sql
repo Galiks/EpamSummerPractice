@@ -1,16 +1,16 @@
 USE master 
 GO 
 
-IF EXISTS(SELECT * FROM sys.databases WHERE name='Olympics') 
+IF EXISTS(SELECT * FROM sys.databases WHERE name='Olympics2') 
 BEGIN 
-DROP DATABASE Olympics
+DROP DATABASE Olympics2
 END 
 GO 
 
-CREATE DATABASE Olympics
+CREATE DATABASE Olympics2
 GO 
 
-USE Olympics
+USE Olympics2
 GO
 
 CREATE TABLE [User] (
@@ -98,7 +98,7 @@ BEGIN
       ,[Name]
       ,[Birthday]
       ,[Age]
-  FROM [Olympics].[dbo].[User]
+  FROM [Olympics2].[dbo].[User]
   WHERE [id_user] = @ID
 END
 GO
@@ -116,7 +116,7 @@ BEGIN
       ,[Name]
       ,[Birthday]
       ,[Age]
-  FROM [Olympics].[dbo].[User]
+  FROM [Olympics2].[dbo].[User]
   WHERE [Name] LIKE @NAME
   Order By Age Desc
 END
@@ -135,7 +135,7 @@ BEGIN
       ,[Name]
       ,[Birthday]
       ,[Age]
-  FROM [Olympics].[dbo].[User]
+  FROM [Olympics2].[dbo].[User]
   WHERE [Name] LIKE @LETTER + '%'
 END
 GO
@@ -153,7 +153,7 @@ BEGIN
       ,[Name]
       ,[Birthday]
       ,[Age]
-  FROM [Olympics].[dbo].[User]
+  FROM [Olympics2].[dbo].[User]
   WHERE [Name] LIKE (@WORD+'%'+@WORD)
 END
 GO
@@ -170,7 +170,7 @@ CREATE PROCEDURE UpdateUser--7
 	@AGE int
 AS
 BEGIN
-	UPDATE Olympics.dbo.[User]
+	UPDATE Olympics2.dbo.[User]
 	SET 
 	[Name] = @NAME,
 	Birthday = @BIRTHDAY,
@@ -210,7 +210,7 @@ BEGIN
 	SELECT [id_award]
       ,[Title]
       ,[Description]
-  FROM [Olympics].[dbo].[Award]
+  FROM [Olympics2].[dbo].[Award]
 END
 GO
 
@@ -225,7 +225,7 @@ CREATE PROCEDURE UpdateAward --10
 	@DESCRIPTION varchar(300) = 'Описание отсутствует'
 AS
 BEGIN
-	UPDATE Olympics.dbo.Award
+	UPDATE Olympics2.dbo.Award
 	SET Title = @TITLE,
 	[Description] = @DESCRIPTION
 	WHERE id_award = @ID
@@ -244,7 +244,7 @@ BEGIN
 	SELECT [id_award]
       ,[Title]
       ,[Description]
-  FROM [Olympics].[dbo].[Award]
+  FROM [Olympics2].[dbo].[Award]
   WHERE id_award = @ID
 END
 GO
@@ -277,7 +277,7 @@ BEGIN
 	SELECT [id_award]
       ,[Title]
       ,[Description]
-  FROM [Olympics].[dbo].[Award]
+  FROM [Olympics2].[dbo].[Award]
   WHERE [Title] LIKE @LETTER + '%'
 END
 GO
@@ -298,7 +298,7 @@ BEGIN
 	SELECT TOP (1000) [id_award]
       ,[Title]
       ,[Description]
-	FROM [Olympics].[dbo].[Award]
+	FROM [Olympics2].[dbo].[Award]
 	WHERE [Title] LIKE (@WORD+'%'+@WORD)
 END
 GO
@@ -319,7 +319,7 @@ BEGIN
 	SELECT [id_award]
       ,[Title]
       ,[Description]
-  FROM [Olympics].[dbo].[Award]
+  FROM [Olympics2].[dbo].[Award]
   WHERE [Title] LIKE @TITLE
 END
 GO
