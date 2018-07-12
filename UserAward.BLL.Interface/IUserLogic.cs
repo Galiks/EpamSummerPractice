@@ -10,12 +10,12 @@ namespace UserAward.BLL.Logic
         bool DeleteUser(int id);
         User GetUserById<T>(T id);
         IEnumerable<User> GetUserByName(string name);
-        IEnumerable<User> GetUserByLetter(char letter);
+        IEnumerable<User> GetUserByLetter(string letter);
         IEnumerable<User> GetUserByWord(string word);
         IEnumerable<User> GetUsers();
-        bool UpdateUser(int id, string name, string birthday);
+        bool UpdateUser(string id, string name, string birthday);
         int SetAge(DateTime birthday);
-        bool Rewarding(string idUser, int idAward);
-        IDictionary<int, string> GetAwardFromUserAward(User user);
+        bool Rewarding(string idUser, string idAward);
+        void GetAwardFromUserAward(string id);
     }
 }

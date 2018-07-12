@@ -58,6 +58,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Entity\Entity.csproj">
+      <Project>{F9BCA0F7-AC56-4E63-9297-CBC6D78049BE}</Project>
+      <Name>Entity</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UserAward.BLL.Interface\UserAward.BLL.Interface.csproj">
       <Project>{d1610cfb-6205-46fc-9464-3677221ca3b9}</Project>
       <Name>UserAward.BLL.Interface</Name>

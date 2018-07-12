@@ -45,28 +45,55 @@ namespace UserAward.BLL.Logic
             }
         }
 
-        public bool DeleteAward(int id)
+        public bool DeleteAward(string id)
         {
-            if (_awardDao.GetAwardById(id) != null)
+            int awardId;
+            if (Int32.TryParse(id, out awardId))
             {
-                _awardDao.DeleteAward(id);
+                if (GetAwardById(id) != null)
+                {
+                    _awardDao.DeleteAward(awardId);
 
-                return true;
+                    return true;
+                }
+                else
+                {
+                    Console.WriteLine($"DB has no information");
+                    return false;
+                }
             }
             else
             {
+                Console.WriteLine($"Incorrect ID");
                 return false;
             }
         }
 
-        public Award GetAwardById(int id)
+        public Award GetAwardById(string id)
         {
-            return _awardDao.GetAwardById(id);
+            int awardId;
+            if (Int32.TryParse(id, out awardId))
+            {
+                return _awardDao.GetAwardById(awardId);
+            }
+            else
+            {
+                return null;
+            }
         }
 
-        public IEnumerable<Award> GetAwardByLetter(char letter)
+        public IEnumerable<Award> GetAwardByLetter(string letter)
         {
-            return _awardDao.GetAwardByLetter(letter).ToList();
+            char awardLetter;
+            if (Char.TryParse(letter, out awardLetter))
+            {
+                return _awardDao.GetAwardByLetter(awardLetter).ToList();
+            }
+            else
+            {
+                Console.WriteLine($"Incorrect Letter");
+                return null;
+            }
         }
 
         public IEnumerable<Award> GetAwardByTitle(string title)
@@ -85,25 +112,35 @@ namespace UserAward.BLL.Logic
         }
 
         //Добавить проверку на существование награды!
-        public bool UpdateAward(int id, string title, string description)
+        public bool UpdateAward(string id, string title, string description)
         {
-            if (!String.IsNullOrEmpty(title) && GetAwardById(id) != null)
-            {
-                if (description != null)
-                {
-                    _awardDao.UpdateAward(id, title, description);
+            int awardId;
 
-                    return true;
+            if (Int32.TryParse(id, out awardId))
+            {
+                if (!String.IsNullOrEmpty(title) && GetAwardById(id) != null)
+                {
+                    if (description != null)
+                    {
+                        _awardDao.UpdateAward(awardId, title, description);
+
+                        return true;
+                    }
+                    else
+                    {
+                        _awardDao.UpdateAward(awardId, title, null);
+
+                        return true;
+                    }
                 }
                 else
                 {
-                    _awardDao.UpdateAward(id, title, null);
-
-                    return true;
+                    return false;
                 }
             }
             else
             {
+                Console.WriteLine($"Incorrect ID");
                 return false;
             }
         }

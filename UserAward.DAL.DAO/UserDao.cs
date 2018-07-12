@@ -329,6 +329,8 @@ namespace UserAward.DAL.DAO
             {
                 Dictionary<int, string> result = new Dictionary<int, string>();
 
+                result.Clear();
+
                 var command = connection.CreateCommand();
 
                 command.CommandType = CommandType.StoredProcedure;

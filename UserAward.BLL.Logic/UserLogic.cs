@@ -86,22 +86,22 @@ namespace UserAward.BLL.Logic
             {
                 return _userDao.GetUserByName(name).ToList();
             }
-            else
-            {
-                return null;
-            }
+
+            return null;
         }
 
-        public IEnumerable<User> GetUserByLetter(char letter)
+        public IEnumerable<User> GetUserByLetter(string letter)
         {
-            if (Char.IsLetter(letter))
-            { 
-                return _userDao.GetUserByLetter(letter).ToList();
-            }
-            else
+            char userLetter;
+            if (Char.TryParse(letter, out userLetter))
             {
-                return null;
+                if (Char.IsLetter(userLetter))
+                {
+                    return _userDao.GetUserByLetter(userLetter).ToList();
+                }
             }
+
+            return null;
         }
 
         public IEnumerable<User> GetUserByWord(string word)
@@ -110,59 +110,103 @@ namespace UserAward.BLL.Logic
             {
                 return _userDao.GetUserByWord(word).ToList();
             }
-            else
-            {
-                return null;
-            }
+
+            return null;
         }
 
-        public bool UpdateUser(int id, string name, string birthday)
+        public bool UpdateUser(string id, string name, string birthday)
         {
             DateTime dateTime;
-
-            if (DateTime.TryParse(birthday, out dateTime) && (GetUserById(id) != null) && (GetUserById(id) != null))
-            {
-                _userDao.UpdateUser(id, name, dateTime, SetAge(dateTime));
-
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        //доработать исключение
-        public bool Rewarding(string idUser, int idAward)
-        {
             int userId;
 
-            if (Int32.TryParse(idUser, out userId))
+            if (DateTime.TryParse(birthday, out dateTime) && (Int32.TryParse(id, out userId)))
             {
-                var user = GetUserById(userId);
-
-                if ((user != null))
+                if (GetUserById(userId) != null)
                 {
-
-                    _userDao.Reawrding(user, idAward);
+                    _userDao.UpdateUser(userId, name, dateTime, SetAge(dateTime));
 
                     return true;
-
                 }
                 else
                 {
+                    Console.WriteLine($"DB has no information");
+
                     return false;
                 }
             }
             else
             {
+                Console.WriteLine($"Incorrect id or birthday");
                 return false;
             }
         }
 
-        public IDictionary<int, string> GetAwardFromUserAward(User user)
+        public bool Rewarding(string idUser, string idAward)
         {
-            return _userDao.GetAwardFromUserAward(user.IdUser);
+            int userId;
+            int awardId;
+
+            if (Int32.TryParse(idUser, out userId) && Int32.TryParse(idAward, out awardId))
+            {
+                var user = GetUserById(userId);
+
+                if ((user != null))
+                {
+                    if (_userDao.GetAwardFromUserAward(userId).ContainsKey(awardId))
+                    {
+                        Console.WriteLine($"This user already has award like this");
+                        return false;
+                    }
+                    else
+                    {
+                        _userDao.Reawrding(user, awardId);
+
+                        return true;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"DB doesn't know this user");
+                    return false;
+                }
+            }
+            else
+            {
+                Console.WriteLine($"Incorrect User's ID or Award's ID");
+                return false;
+            }
+        }
+
+        public void GetAwardFromUserAward(string id)
+        {
+            int userId;
+            if (Int32.TryParse(id, out userId))
+            {
+                var user = GetUserById(userId);
+                if (user != null)
+                {
+                    if (_userDao.GetAwardFromUserAward(userId).ToList().Count == 0)
+                    {
+                        Console.WriteLine($"DB has no information");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"User {user.Name} have awards: ");
+                        foreach (var item in _userDao.GetAwardFromUserAward(userId).ToList())
+                        {
+                            Console.WriteLine($"{item.Key} : {item.Value}{Environment.NewLine}");
+                        }
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"DB has no information about this user");
+                }
+            }
+            else
+            {
+                Console.WriteLine($"Incorrect ID");
+            }
         }
 
         public User GetUserById<T>(T id)

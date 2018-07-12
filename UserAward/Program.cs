@@ -130,50 +130,21 @@ namespace userAward
                 switch (userAction)
                 {
                     case "1":
-                        var men = userLogic.GetUsers();
-                        if (men.ToList().Count == 0)
+                        foreach (var item in userLogic.GetUsers())
                         {
-                            Console.WriteLine($"DB has no information");
-                        }
-                        else
-                        {
-                            foreach (var item in men)
-                            {
-                                Console.WriteLine($"{item.IdUser} : {item.Name} : {item.Birthday.Year}-{item.Birthday.Month}-{item.Birthday.Day} : {item.Age}{Environment.NewLine}");
-                            }
-                        }
+                            Console.WriteLine($"{item.IdUser} : {item.Name} : {item.Birthday.Year}-{item.Birthday.Month}-{item.Birthday.Day} : {item.Age}{Environment.NewLine}");
+                        }                       
                         break;
                     case "2":
-                        var awards = awardLogic.GetAwards();
-                        if (awards.ToList().Count == 0)
+                        foreach (var item in awardLogic.GetAwards())
                         {
-                            Console.WriteLine($"DB has no information");
-                        }
-                        else
-                        {
-                            foreach (var item in awards)
-                            {
-                                Console.WriteLine($"{item.IdAward} : {item.Title} : {item.Description}{Environment.NewLine}");
-                            }
+                            Console.WriteLine($"{item.IdAward} : {item.Title} : {item.Description}{Environment.NewLine}");
                         }
                         break;
                     case "3":
                         Console.Write($"User's id: ");
                         var id_3 = Console.ReadLine();
-                        var user_3 = userLogic.GetUserById(Int32.Parse(id_3));
-                        var men_awards_3 = userLogic.GetAwardFromUserAward(user_3);
-                        if (men_awards_3.ToList().Count == 0)
-                        {
-                            Console.WriteLine($"DB has no information");
-                        }
-                        else
-                        {
-                            Console.WriteLine($"User {user_3.Name} have awards: ");
-                            foreach (var item in men_awards_3)
-                            {
-                                Console.WriteLine($"{item.Key} : {item.Value}{Environment.NewLine}");
-                            }
-                        }
+                        userLogic.GetAwardFromUserAward(id_3);
                         break;
                     case "4":
                         return;
@@ -182,6 +153,7 @@ namespace userAward
                 }
             }
         }
+
 
         //выбор действия
         private static void Actions()
@@ -238,10 +210,7 @@ namespace userAward
                         Console.Write($"User's ID: ");
                         var id_1 = Console.ReadLine();
                         var userById = userLogic.GetUserById(id_1);
-                        if (userById != null)
-                        {
-                            Console.WriteLine($"{userById.IdUser} : {userById.Name} : {userById.Birthday.Year}-{userById.Birthday.Month}-{userById.Birthday.Day} : {userById.Age}{Environment.NewLine}");
-                        }
+                        Console.WriteLine($"{userById.IdUser} : {userById.Name} : {userById.Birthday.Year}-{userById.Birthday.Month}-{userById.Birthday.Day} : {userById.Age}{Environment.NewLine}");
                         break;
                     case "2":
                         Console.Write($"User's name: ");
@@ -254,33 +223,17 @@ namespace userAward
                     case "3":
                         Console.Write($"Write letter: ");
                         var letter = Console.ReadLine();
-                        var result_3 = userLogic.GetUserByLetter(Char.Parse(letter));
-                        if (result_3.ToList().Count == 0)
+                        foreach (var item in userLogic.GetUserByLetter(letter))
                         {
-                            Console.WriteLine($"DB has no information");
-                        }
-                        else
-                        {
-                            foreach (var item in result_3)
-                            {
-                                Console.WriteLine($"{item.IdUser} : {item.Name} : {item.Birthday.Year}-{item.Birthday.Month}-{item.Birthday.Day} : {item.Age}{Environment.NewLine}");
-                            }
+                            Console.WriteLine($"{item.IdUser} : {item.Name} : {item.Birthday.Year}-{item.Birthday.Month}-{item.Birthday.Day} : {item.Age}{Environment.NewLine}");
                         }
                         break;
                     case "4":
                         Console.Write($"Write word: ");
                         var word = Console.ReadLine();
-                        var result_4 = userLogic.GetUserByWord(word);
-                        if (result_4.ToList().Count == 0)
+                        foreach (var item in userLogic.GetUserByWord(word))
                         {
-                            Console.WriteLine($"DB has no information");
-                        }
-                        else
-                        {
-                            foreach (var item in result_4)
-                            {
-                                Console.WriteLine($"{item.IdUser} : {item.Name} : {item.Birthday.Year}-{item.Birthday.Month}-{item.Birthday.Day} : {item.Age}{Environment.NewLine}");
-                            }
+                            Console.WriteLine($"{item.IdUser} : {item.Name} : {item.Birthday.Year}-{item.Birthday.Month}-{item.Birthday.Day} : {item.Age}{Environment.NewLine}");
                         }
                         break;
                     case "5":
@@ -288,7 +241,7 @@ namespace userAward
                         var userId = Console.ReadLine();
                         Console.Write($"Award ID: ");
                         var awardId = Console.ReadLine();
-                        Rewarding(userId, awardId);
+                        userLogic.Rewarding(userId, awardId);
                         break;
                     case "6":
                         Console.Write($"User's ID: ");
@@ -307,22 +260,11 @@ namespace userAward
                     case "7":
                         Console.Write($"User's ID: ");
                         var id_6 = Console.ReadLine();
-                        if (Int32.TryParse(id_6, out int number))
-                        {
-                            int rightId = Int32.Parse(id_6);
-                            if (userLogic.GetUserById(rightId) != null)
-                            {
-                                Console.Write($"User's Name: ");
-                                var name_6 = Console.ReadLine();
-                                Console.Write($"User's Birthday: ");
-                                var birthday = Console.ReadLine();
-                                userLogic.UpdateUser(rightId, name_6, birthday);
-                            }
-                            else
-                            {
-                                Console.WriteLine($"Incorrect ID");
-                            }
-                        }
+                        Console.Write($"User's Name: ");
+                        var name_6 = Console.ReadLine();
+                        Console.Write($"User's Birthday: ");
+                        var birthday = Console.ReadLine();
+                        userLogic.UpdateUser(id_6, name_6, birthday);
                         break;
                     case "8":
                         return;
@@ -332,33 +274,13 @@ namespace userAward
             }
         }
 
-        private static void Rewarding(string userId, string awardId)
-        {
-            int awardIdForParse;
-            if (Int32.TryParse(awardId, out awardIdForParse))
-            {
-                if (awardLogic.GetAwardById(awardIdForParse) != null)
-                {
-                    userLogic.Rewarding(userId, awardIdForParse);
-                }
-                else
-                {
-                    Console.WriteLine($"Incorrect Award's ID");
-                }
-            }
-            else
-            {
-                Console.WriteLine($"Incorrect Award's ID");
-            }
-        }
-
         //дейтсвия для Awards
         private static void AwardsAction()
         {
             while (true)
             {
                 Console.WriteLine();
-                Console.WriteLine($"1: Find award");
+                Console.WriteLine($"1: Find award by ID");
                 Console.WriteLine($"2: Find award by Name");
                 Console.WriteLine($"3: Find award by the first letter");
                 Console.WriteLine($"4: Find award whose name includes the entered word");
@@ -375,14 +297,13 @@ namespace userAward
                     case "1":
                         Console.Write($"Award's ID: ");
                         var id_1 = Console.ReadLine();
-                        var result_1 = awardLogic.GetAwardById(Int32.Parse(id_1));
+                        var result_1 = awardLogic.GetAwardById(id_1);
                         Console.WriteLine($"{result_1.IdAward} : {result_1.Title} : {result_1.Description}{Environment.NewLine}");
                         break;
                     case "2":
                         Console.Write($"Award's Title: ");
                         var name_2 = Console.ReadLine();
-                        var result_2 = awardLogic.GetAwardByTitle(name_2);
-                        foreach (var item in result_2)
+                        foreach (var item in awardLogic.GetAwardByTitle(name_2))
                         {
                             Console.WriteLine($"{item.IdAward} : {item.Title} : {item.Description}{Environment.NewLine}");
                         }
@@ -390,65 +311,33 @@ namespace userAward
                     case "3":
                         Console.Write($"Write letter: ");
                         var letter_3 = Console.ReadLine();
-                        var result_3 = awardLogic.GetAwardByLetter(Char.Parse(letter_3));
-                        if (result_3.ToList().Count == 0)
+                        foreach (var item in awardLogic.GetAwardByLetter(letter_3))
                         {
-                            Console.WriteLine($"DB has no information");
-                        }
-                        else
-                        {
-                            foreach (var item in result_3)
-                            {
-                                Console.WriteLine($"{item.IdAward} : {item.Title} : {item.Description}{Environment.NewLine}");
-                            }
+                            Console.WriteLine($"{item.IdAward} : {item.Title} : {item.Description}{Environment.NewLine}");
                         }
                         break;
                     case "4":
                         Console.Write($"Write word: ");
                         var word = Console.ReadLine();
-                        var result_4 = awardLogic.GetAwardByWord(word);
-                        if (result_4.ToList().Count == 0)
+                        foreach (var item in awardLogic.GetAwardByWord(word))
                         {
-                            Console.WriteLine($"DB has no information");
-                        }
-                        else
-                        {
-                            foreach (var item in result_4)
-                            {
-                                Console.WriteLine($"{item.IdAward} : {item.Title} : {item.Description}{Environment.NewLine}");
-                            }
+                            Console.WriteLine($"{item.IdAward} : {item.Title} : {item.Description}{Environment.NewLine}");
                         }
                         break;
                     case "5":
                         Console.Write($"Award's ID: ");
                         var id_5 = Console.ReadLine();
-                        var award = awardLogic.GetAwardById(Int32.Parse(id_5));
-                        if (award != null)
-                        {
-                            awardLogic.DeleteAward(Int32.Parse(id_5));
-                        }
-                        else
-                        {
-                            Console.WriteLine($"Incorect ID");
-                        }
+                        awardLogic.DeleteAward(id_5);
                         break;
                     case "6":
                         Console.Write($"award's ID: ");
                         var id_6 = Console.ReadLine();
-                        var result_6 = awardLogic.GetAwardById(Int32.Parse(id_6));
+                        var result_6 = awardLogic.GetAwardById(id_6);
                         Console.Write($"award's Titile: ");
                         var title = Console.ReadLine();
                         Console.Write($"award's Description: ");
                         var description = Console.ReadLine();
-                        if (result_6 != null)
-                        {
-                            awardLogic.UpdateAward(Int32.Parse(id_6), title, description);
-                        }
-                        else
-                        {
-                            Console.WriteLine($"Incorrect ID");
-                        }
-
+                        awardLogic.UpdateAward(id_6, title, description);
                         break;
                     case "7":
                         return;

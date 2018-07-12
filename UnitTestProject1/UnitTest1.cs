@@ -13,12 +13,16 @@ namespace UnitTestProject1
         [TestMethod]
         public void Reawrding()
         {
-            //NinjectCommon.Registration();
+            NinjectCommon.Registration();
 
-            //IUserLogic userLogic = NinjectCommon.Kernel.Get<IUserLogic>();
-            //IAwardLogic awardLogic = NinjectCommon.Kernel.Get<IAwardLogic>();
+            IUserLogic userLogic = NinjectCommon.Kernel.Get<IUserLogic>();
+            IAwardLogic awardLogic = NinjectCommon.Kernel.Get<IAwardLogic>();
 
             //var result = userLogic.Rewarding("1", 1);
+
+            var result = userLogic.GetUserById(1);
+
+            Console.WriteLine(result);
 
             Assert.AreEqual(1, 1, 0, "ERROR");
         }

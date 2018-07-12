@@ -9,3 +9,13 @@ E:\Programs\Projects Visual Studio\UserAward\UserAward.BLL.Interface\obj\Debug\U
 E:\Programs\Projects Visual Studio\UserAward\UserAward.BLL.Interface\obj\Debug\UserAward.BLL.Interface.pdb
 E:\Programs\Projects Visual Studio\UserAward\UserAward.BLL.Interface\bin\Debug\Ninject.dll
 E:\Programs\Projects Visual Studio\UserAward\UserAward.BLL.Interface\bin\Debug\Ninject.xml
+E:\Programs\Projects Visual Studio\UserAward\UserAward.BLL.Interface\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+E:\Programs\Projects Visual Studio\UserAward\UserAward.BLL.Interface\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+E:\Programs\Projects Visual Studio\UserAward\UserAward.BLL.Interface\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+E:\Programs\Projects Visual Studio\UserAward\UserAward.BLL.Interface\bin\Debug\ru\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll
+E:\Programs\Projects Visual Studio\UserAward\UserAward.BLL.Interface\bin\Debug\ru\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll
+E:\Programs\Projects Visual Studio\UserAward\UserAward.BLL.Interface\bin\Debug\ru\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
+E:\Programs\Projects Visual Studio\UserAward\UserAward.BLL.Interface\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+E:\Programs\Projects Visual Studio\UserAward\UserAward.BLL.Interface\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+E:\Programs\Projects Visual Studio\UserAward\UserAward.BLL.Interface\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+E:\Programs\Projects Visual Studio\UserAward\UserAward.BLL.Interface\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
