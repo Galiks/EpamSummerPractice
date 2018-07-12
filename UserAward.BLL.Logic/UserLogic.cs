@@ -4,8 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UserAward.BLL.Interface;
 using UserAward.DAL.DAO;
 using UserAward.DAL.Interface;
+using Ninject;
 
 namespace UserAward.BLL.Logic
 {
@@ -116,9 +118,11 @@ namespace UserAward.BLL.Logic
 
         public bool UpdateUser(int id, string name, string birthday)
         {
-            if (DateTime.TryParse(birthday, out DateTime dateTime) && (GetUserById(id) != null) && (GetUserById(id) != null))
+            DateTime dateTime;
+
+            if (DateTime.TryParse(birthday, out dateTime) && (GetUserById(id) != null) && (GetUserById(id) != null))
             {
-                _userDao.UpdateUser(id, name, DateTime.Parse(birthday), SetAge(DateTime.Parse(birthday)));
+                _userDao.UpdateUser(id, name, dateTime, SetAge(dateTime));
 
                 return true;
             }
@@ -128,18 +132,19 @@ namespace UserAward.BLL.Logic
             }
         }
 
-
         //доработать исключение
-        public bool Rewarding(string idUser, string idAward)
+        public bool Rewarding(string idUser, int idAward)
         {
-            if ((Int32.TryParse(idUser, out int number)) && (Int32.TryParse(idAward, out int number2)))
+            int userId;
+
+            if (Int32.TryParse(idUser, out userId))
             {
-                var user = GetUserById(Int32.Parse(idUser));
+                var user = GetUserById(userId);
 
                 if ((user != null))
                 {
 
-                    _userDao.Reawrding(user, Int32.Parse(idAward));
+                    _userDao.Reawrding(user, idAward);
 
                     return true;
 
@@ -162,28 +167,23 @@ namespace UserAward.BLL.Logic
 
         public User GetUserById<T>(T id)
         {
-            var result = _userDao.GetUserById(TryAndParse(id));
-            if (result != null)
+            int userId;
+            if (Int32.TryParse(id.ToString(), out userId))
             {
-                return result;
+                var result = _userDao.GetUserById((userId));
+                if (result != null)
+                {
+                    return result;
+                }
+                else
+                {
+                    Console.WriteLine($"Incorrect ID");
+                    return null;
+                }
             }
             else
             {
-                Console.WriteLine($"Incorrect ID");
                 return null;
-            }
-
-        }
-
-        private int TryAndParse<T>(T id)
-        {
-            if ((id is int) && Int32.TryParse(id.ToString(), out int number))
-            {
-                return Int32.Parse(id.ToString());
-            }
-            else
-            {
-                return 0;
             }
         }
     }

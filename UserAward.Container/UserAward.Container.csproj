@@ -47,9 +47,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\UserAward.BLL.Interface\UserAward.BLL.Interface.csproj">
       <Project>{d1610cfb-6205-46fc-9464-3677221ca3b9}</Project>
       <Name>UserAward.BLL.Interface</Name>
@@ -66,6 +63,9 @@
       <Project>{EC9AC36D-EFB0-4250-A213-D6A2CF219BAF}</Project>
       <Name>UserAward.DAL.Interface</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

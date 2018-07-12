@@ -15,7 +15,7 @@ namespace UserAward.BLL.Logic
         IEnumerable<User> GetUsers();
         bool UpdateUser(int id, string name, string birthday);
         int SetAge(DateTime birthday);
-        bool Rewarding(string idUser, string idAward);
+        bool Rewarding(string idUser, int idAward);
         IDictionary<int, string> GetAwardFromUserAward(User user);
     }
 }

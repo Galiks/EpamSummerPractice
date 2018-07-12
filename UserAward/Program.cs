@@ -17,144 +17,19 @@ namespace userAward
 
         static void Main(string[] args)
         {
-            #region Testing
-            //var userLogic = userAwardContainer.userLogic;
-            //var awardLogic = userAwardContainer.AwardLogic;
-
-            #region testForuser
-            //userLogic.Adduser("Petr", "1996-12-04");
-
-            //userLogic.Adduser("John", "1996-12-04");
-
-            //userLogic.Adduser("Alice", "1996-12-04");
-            //userLogic.Adduser("Alice", "1800-12-05");
-            //userLogic.Adduser("Alice", "1900-12-06");
-
-            //userLogic.Adduser("Papashapa", "1890-10-09");
-
-            //foreach (var item in userLogic.Getusers())
-            //{
-            //    Console.WriteLine($"{item.Iduser} : {item.Name}");
-            //}
-
-            //Console.WriteLine();
-
-            //userLogic.Updateuser(4, "Pasha", "1985-07-23");
-
-
-            //foreach (var item in userLogic.Getusers())
-            //{
-            //    Console.WriteLine($"{item.Iduser} : {item.Name}");
-            //}
-
-            //Console.WriteLine();
-
-            //userLogic.Deleteuser(7);
-
-            //foreach (var item in userLogic.Getusers())
-            //{
-            //    Console.WriteLine($"{item.Iduser} : {item.Name}");
-            //} 
-            #endregion
-
-            #region testForAward
-            //awardLogic.AddAward("Bad Boy", "Bob Marley");
-            //awardLogic.AddAward("Good Boy", "For nothing");
-            //awardLogic.AddAward("Neutral Boy", null);
-
-            //Console.Write("TITLE: ");
-            //var title = Console.ReadLine();
-            //Console.WriteLine();
-            //Console.Write("DESC: ");
-            //var desc = Console.ReadLine();
-
-            //awardLogic.AddAward(title, desc);
-
-            //awardLogic.AddAward("Yellow Boy", null);
-
-            //foreach (var item in awardLogic.GetAwards())
-            //{
-            //    Console.WriteLine($"{item.IdAward} : {item.Title} : {item.Description}");
-            //}
-
-            //Console.WriteLine();
-
-            //foreach (var item in awardLogic.GetAwardByTitle("bad Boy"))
-            //{
-            //    Console.WriteLine(item.Title);
-            //}
-
-            //foreach (var item in awardLogic.GetAwardByWord("y"))
-            //{
-            //    Console.WriteLine($"{item.Title}");
-            //}
-
-            //foreach (var item in awardLogic.GetAwardByLetter('G'))
-            //{
-            //    Console.WriteLine($"{item.IdAward} : {item.Title}");
-            //}
-
-            //Console.WriteLine(awardLogic.GetAwardById(1).Title);
-
-            //awardLogic.DeleteAward(6);
-
-            //foreach (var item in awardLogic.GetAwards())
-            //{
-            //    Console.WriteLine($"{item.IdAward} : {item.Title} : {item.Description}");
-            //}
-            #endregion
-
-            #region testForRewarding
-            //foreach (var item in awardLogic.GetAwards())
-            //{
-            //    Console.WriteLine($"{item.IdAward} : {item.Title} : {item.Description}");
-            //}
-
-            //Console.WriteLine();
-
-            //foreach (var item in userLogic.Getusers())
-            //{
-            //    Console.WriteLine($"{item.Iduser} : {item.Name} : {item.Age}");
-            //}
-
-            //userLogic.Rewarding(1, 1);
-            //userLogic.Rewarding(1, 2);
-
-            //var user = userLogic.GetuserById(1);
-
-            //Console.WriteLine($"user {user.Name} have awards: ");
-            //foreach (var item in userLogic.GetAwardFromuserAward(user))
-            //{
-            //    Console.WriteLine($"{item.Key} : {item.Value}");
-            //}
-
-
-
-            //Console.WriteLine();
-            #endregion 
-            #endregion
-
             NinjectCommon.Registration();
 
             userLogic = NinjectCommon.Kernel.Get<IUserLogic>();
             awardLogic = NinjectCommon.Kernel.Get<IAwardLogic>();
 
-            //string test = "111";
-
-            //int number;
-
-            //Int32.TryParse(test, out number);
-
-            //Console.WriteLine(number);
-
-            //StartMethod();
+            StartMethod();
 
         }
 
 
         private static void StartMethod()
         {
-            
+
             while (true)
             {
                 Console.WriteLine();
@@ -194,9 +69,8 @@ namespace userAward
                 Console.WriteLine();
                 Console.WriteLine($"1: Add user");
                 Console.WriteLine($"2: Add award");
-                Console.WriteLine($"3: Rewarding");
-                Console.WriteLine($"4: HELP");
-                Console.WriteLine($"5: EXIT");
+                Console.WriteLine($"3: HELP");
+                Console.WriteLine($"4: EXIT");
 
                 Console.Write($"Choose action: ");
 
@@ -227,24 +101,9 @@ namespace userAward
                         Console.WriteLine($"Award is created!{Environment.NewLine}");
                         break;
                     case "3":
-                        Console.Write($"User's ID: ");
-                        var id_user = Console.ReadLine();
-                        Console.Write($"Award's ID: ");
-                        var id_award = Console.ReadLine();
-
-                        if (!userLogic.Rewarding(id_user, id_award))
-                        {
-                            Console.WriteLine($"Ligament isn't created! You are repeat award!{Environment.NewLine}");
-                        }
-                        else
-                        {
-                            Console.WriteLine($"Ligament is created!{Environment.NewLine}");
-                        }
-                        break;
-                    case "4":
                         Console.WriteLine($"HELP YOURSELF");
                         break;
-                    case "5":
+                    case "4":
                         return;
                     default:
                         Console.WriteLine("I don't know this comuserd");
@@ -354,7 +213,7 @@ namespace userAward
             }
         }
 
-        //дейтсвия для Men
+        //дейтсвия для Users
         private static void UsersAction()
         {
             while (true)
@@ -364,9 +223,10 @@ namespace userAward
                 Console.WriteLine($"2: Find user by Name");
                 Console.WriteLine($"3: Find men by the first letter");
                 Console.WriteLine($"4: Find men whose name starts or ends with the entered word");
-                Console.WriteLine($"5: Delete user");
-                Console.WriteLine($"6: Edit user");
-                Console.WriteLine($"7: EXIT");
+                Console.WriteLine($"5: Rewarding");
+                Console.WriteLine($"6: Delete user");
+                Console.WriteLine($"7: Edit user");
+                Console.WriteLine($"8: EXIT");
 
                 Console.Write("Choose action: ");
 
@@ -424,6 +284,13 @@ namespace userAward
                         }
                         break;
                     case "5":
+                        Console.Write($"User ID: ");
+                        var userId = Console.ReadLine();
+                        Console.Write($"Award ID: ");
+                        var awardId = Console.ReadLine();
+                        Rewarding(userId, awardId);
+                        break;
+                    case "6":
                         Console.Write($"User's ID: ");
                         var id_5 = Console.ReadLine();
                         try
@@ -437,7 +304,7 @@ namespace userAward
                             UsersAction();
                         }
                         break;
-                    case "6":
+                    case "7":
                         Console.Write($"User's ID: ");
                         var id_6 = Console.ReadLine();
                         if (Int32.TryParse(id_6, out int number))
@@ -457,7 +324,7 @@ namespace userAward
                             }
                         }
                         break;
-                    case "7":
+                    case "8":
                         return;
                     default:
                         break;
@@ -465,7 +332,27 @@ namespace userAward
             }
         }
 
-        //дейтсвия для awards
+        private static void Rewarding(string userId, string awardId)
+        {
+            int awardIdForParse;
+            if (Int32.TryParse(awardId, out awardIdForParse))
+            {
+                if (awardLogic.GetAwardById(awardIdForParse) != null)
+                {
+                    userLogic.Rewarding(userId, awardIdForParse);
+                }
+                else
+                {
+                    Console.WriteLine($"Incorrect Award's ID");
+                }
+            }
+            else
+            {
+                Console.WriteLine($"Incorrect Award's ID");
+            }
+        }
+
+        //дейтсвия для Awards
         private static void AwardsAction()
         {
             while (true)
@@ -553,7 +440,7 @@ namespace userAward
                         var title = Console.ReadLine();
                         Console.Write($"award's Description: ");
                         var description = Console.ReadLine();
-                        if(result_6 != null)
+                        if (result_6 != null)
                         {
                             awardLogic.UpdateAward(Int32.Parse(id_6), title, description);
                         }
@@ -561,7 +448,7 @@ namespace userAward
                         {
                             Console.WriteLine($"Incorrect ID");
                         }
-                        
+
                         break;
                     case "7":
                         return;
@@ -570,70 +457,5 @@ namespace userAward
                 }
             }
         }
-        #region OldVersion
-        //private static void BasicData()
-        //{
-
-        //    var name = "Pasha";
-        //    var birthday = "1996-12-04";
-        //    menLogic.Adduser(name, birthday);
-
-        //    var name1 = "Petr";
-        //    var birthday1 = "1996-12-04";
-        //    menLogic.Adduser(name1, birthday1);
-
-        //    var name4 = "Pasha";
-        //    var birthday4 = "1294-04-04";
-        //    menLogic.Adduser(name4, birthday4);
-
-        //    var name2 = "Misha";
-        //    var birthday2 = "1996-12-04";
-        //    menLogic.Adduser(name2, birthday2);
-
-        //    var name3 = "Pasha";
-        //    var birthday3 = "1990-04-12";
-        //    menLogic.Adduser(name3, birthday3);
-
-
-        //    var title = "Good boy";
-        //    var description = "For nothing";
-        //    awardsLogic.Addaward(title, description);
-
-        //    var title1 = "Bad boy";
-        //    var description1 = "For nothing";
-        //    awardsLogic.Addaward(title1, description1);
-
-        //    var title2 = "Neutral boy";
-        //    var description2 = "For nothing";
-        //    awardsLogic.Addaward(title2, description2);
-
-
-        //    var iD_user = "1";
-        //    var iD_award = "1";
-        //    menAndawardsLogic.AddMen_awards(iD_user, iD_award);
-
-        //    var iD_user1 = "1";
-        //    var iD_award1 = "2";
-        //    menAndawardsLogic.AddMen_awards(iD_user1, iD_award1);
-
-        //    var iD_user2 = "1";
-        //    var iD_award2 = "3";
-        //    menAndawardsLogic.AddMen_awards(iD_user2, iD_award2);
-
-        //    var iD_user3 = "2";
-        //    var iD_award3 = "1";
-        //    menAndawardsLogic.AddMen_awards(iD_user3, iD_award3);
-
-        //    var iD_user4 = "2";
-        //    var iD_award4 = "2";
-        //    menAndawardsLogic.AddMen_awards(iD_user4, iD_award4);
-
-        //    var iD_user5 = "3";
-        //    var iD_award5 = "1";
-        //    menAndawardsLogic.AddMen_awards(iD_user5, iD_award5);
-        //}
-        #endregion
-
-
     }
 }
