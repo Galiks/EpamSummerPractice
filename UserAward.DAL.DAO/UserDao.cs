@@ -95,17 +95,18 @@ namespace UserAward.DAL.DAO
 
                 connection.Open();
 
-                var reader = command.ExecuteReader();
-
-                while (reader.Read())
+                using (var reader = command.ExecuteReader())
                 {
-                    return new User
+                    while (reader.Read())
                     {
-                        IdUser = (int)reader["id_user"],
-                        Name = (string)reader["Name"],
-                        Birthday = (DateTime)reader["Birthday"],
-                        Age = (int)reader["Age"],
-                    };
+                        return new User
+                        {
+                            IdUser = (int)reader["id_user"],
+                            Name = (string)reader["Name"],
+                            Birthday = (DateTime)reader["Birthday"],
+                            Age = (int)reader["Age"],
+                        };
+                    } 
                 }
 
             }
@@ -132,17 +133,18 @@ namespace UserAward.DAL.DAO
 
                 connection.Open();
 
-                var reader = command.ExecuteReader();
-
-                while (reader.Read())
+                using (var reader = command.ExecuteReader())
                 {
-                    yield return new User
+                    while (reader.Read())
                     {
-                        IdUser = (int)reader["id_user"],
-                        Name = (string)reader["Name"],
-                        Birthday = (DateTime)reader["Birthday"],
-                        Age = (int)reader["Age"],
-                    };
+                        yield return new User
+                        {
+                            IdUser = (int)reader["id_user"],
+                            Name = (string)reader["Name"],
+                            Birthday = (DateTime)reader["Birthday"],
+                            Age = (int)reader["Age"],
+                        };
+                    } 
                 }
 
             }
@@ -167,17 +169,18 @@ namespace UserAward.DAL.DAO
 
                 connection.Open();
 
-                var reader = command.ExecuteReader();
-
-                while (reader.Read())
+                using (var reader = command.ExecuteReader())
                 {
-                    yield return new User
+                    while (reader.Read())
                     {
-                        IdUser = (int)reader["id_user"],
-                        Name = (string)reader["Name"],
-                        Birthday = (DateTime)reader["Birthday"],
-                        Age = (int)reader["Age"],
-                    };
+                        yield return new User
+                        {
+                            IdUser = (int)reader["id_user"],
+                            Name = (string)reader["Name"],
+                            Birthday = (DateTime)reader["Birthday"],
+                            Age = (int)reader["Age"],
+                        };
+                    } 
                 }
 
             }
@@ -200,19 +203,20 @@ namespace UserAward.DAL.DAO
 
                 command.Parameters.Add(word);
 
-                connection.Open();
+                connection.Open();       
 
-                var reader = command.ExecuteReader();
-
-                while (reader.Read())
+                using (var reader = command.ExecuteReader())
                 {
-                    yield return new User
+                    while (reader.Read())
                     {
-                        IdUser = (int)reader["id_user"],
-                        Name = (string)reader["Name"],
-                        Birthday = (DateTime)reader["Birthday"],
-                        Age = (int)reader["Age"],
-                    };
+                        yield return new User
+                        {
+                            IdUser = (int)reader["id_user"],
+                            Name = (string)reader["Name"],
+                            Birthday = (DateTime)reader["Birthday"],
+                            Age = (int)reader["Age"],
+                        };
+                    } 
                 }
 
             }
@@ -234,17 +238,18 @@ namespace UserAward.DAL.DAO
 
                 connection.Open();
 
-                var reader = command.ExecuteReader();
-
-                while (reader.Read())
+                using (var reader = command.ExecuteReader())
                 {
-                    yield return new User
+                    while (reader.Read())
                     {
-                        IdUser = (int)reader["id_user"],
-                        Name = (string)reader["Name"],
-                        Birthday = (DateTime)reader["Birthday"],
-                        Age = (int)reader["Age"],
-                    };
+                        yield return new User
+                        {
+                            IdUser = (int)reader["id_user"],
+                            Name = (string)reader["Name"],
+                            Birthday = (DateTime)reader["Birthday"],
+                            Age = (int)reader["Age"],
+                        };
+                    } 
                 }
 
             }
@@ -344,12 +349,13 @@ namespace UserAward.DAL.DAO
                 command.Parameters.Add(id);
 
                 connection.Open();
-
-                var reader = command.ExecuteReader();
-
-                while (reader.Read())
+                              
+                using (var reader = command.ExecuteReader())
                 {
-                    result.Add( (int)reader["id_award"], (string)reader["Title"]);
+                    while (reader.Read())
+                    {
+                        result.Add((int)reader["id_award"], (string)reader["Title"]);
+                    } 
                 }
 
                 return result;

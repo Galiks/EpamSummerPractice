@@ -89,16 +89,17 @@ namespace UserAward.DAL.DAO
 
                 connection.Open();
 
-                var reader = command.ExecuteReader();
-
-                while (reader.Read())
+                using (var reader = command.ExecuteReader())
                 {
-                    return new Award
+                    while (reader.Read())
                     {
-                        IdAward = (int)reader["id_award"],
-                        Title = (string)reader["Title"],
-                        Description = (string)reader["Description"],
-                    };
+                        return new Award
+                        {
+                            IdAward = (int)reader["id_award"],
+                            Title = (string)reader["Title"],
+                            Description = (string)reader["Description"],
+                        };
+                    } 
                 }
             }
 
@@ -124,16 +125,19 @@ namespace UserAward.DAL.DAO
 
                 connection.Open();
 
-                var reader = command.ExecuteReader();
+                
 
-                while (reader.Read())
+                using (var reader = command.ExecuteReader())
                 {
-                    yield return new Award
+                    while (reader.Read())
                     {
-                        IdAward = (int)reader["id_award"],
-                        Title = (string)reader["Title"],
-                        Description = (string)reader["Description"]
-                    };
+                        yield return new Award
+                        {
+                            IdAward = (int)reader["id_award"],
+                            Title = (string)reader["Title"],
+                            Description = (string)reader["Description"]
+                        };
+                    } 
                 }
 
             }
@@ -158,16 +162,19 @@ namespace UserAward.DAL.DAO
 
                 connection.Open();
 
-                var reader = command.ExecuteReader();
+                
 
-                while (reader.Read())
+                using (var reader = command.ExecuteReader())
                 {
-                    yield return new Award
+                    while (reader.Read())
                     {
-                        IdAward = (int)reader["id_award"],
-                        Title = (string)reader["Title"],
-                        Description = (string)reader["Description"]
-                    };
+                        yield return new Award
+                        {
+                            IdAward = (int)reader["id_award"],
+                            Title = (string)reader["Title"],
+                            Description = (string)reader["Description"]
+                        };
+                    } 
                 }
 
             }
@@ -192,16 +199,19 @@ namespace UserAward.DAL.DAO
 
                 connection.Open();
 
-                var reader = command.ExecuteReader();
+                
 
-                while (reader.Read())
+                using (var reader = command.ExecuteReader())
                 {
-                    yield return new Award
+                    while (reader.Read())
                     {
-                        IdAward = (int)reader["id_award"],
-                        Title = (string)reader["Title"],
-                        Description = (string)reader["Description"]
-                    };
+                        yield return new Award
+                        {
+                            IdAward = (int)reader["id_award"],
+                            Title = (string)reader["Title"],
+                            Description = (string)reader["Description"]
+                        };
+                    } 
                 }
 
             }
@@ -218,16 +228,17 @@ namespace UserAward.DAL.DAO
 
                 connection.Open();
 
-                var reader = command.ExecuteReader();
-
-                while (reader.Read())
+                using (var reader = command.ExecuteReader())
                 {
-                    yield return new Award
+                    while (reader.Read())
                     {
-                        IdAward = (int)reader["id_award"],
-                        Title = (string)reader["Title"],
-                        Description = (string)reader["Description"]
-                    };
+                        yield return new Award
+                        {
+                            IdAward = (int)reader["id_award"],
+                            Title = (string)reader["Title"],
+                            Description = (string)reader["Description"]
+                        };
+                    } 
                 }
             }
         }
