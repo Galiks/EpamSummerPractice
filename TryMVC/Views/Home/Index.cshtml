@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div>
+    @using (Html.BeginForm("Index", "Home"))
+    {
+        <button name="action" value="Users">Пользователи</button>
+        <button name="action" value="Award">Награды</button>
+        <button name="action" value="File">Скачать список пользователей</button>
+    }
+</div>

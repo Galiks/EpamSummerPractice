@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище OlympicsModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Award">
+    <Key>
+      <PropertyRef Name="id_award" />
+    </Key>
+    <Property Name="id_award" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="250" />
+    <Property Name="AwardImage" Type="varbinary(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="id_user" />
+    </Key>
+    <Property Name="id_user" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Birthday" Type="date" Nullable="false" />
+    <Property Name="Age" Type="int" Nullable="false" />
+    <Property Name="UserPhoto" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="User_Award">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_user" Type="int" Nullable="false" />
+    <Property Name="id_award" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_User_Award_TO_Award">
+    <End Role="Award" Type="Self.Award" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="User_Award" Type="Self.User_Award" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Award">
+        <PropertyRef Name="id_award" />
+      </Principal>
+      <Dependent Role="User_Award">
+        <PropertyRef Name="id_award" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Award_TO_User">
+    <End Role="User" Type="Self.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="User_Award" Type="Self.User_Award" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="id_user" />
+      </Principal>
+      <Dependent Role="User_Award">
+        <PropertyRef Name="id_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="AddAward" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TITLE" Type="varchar" Mode="In" />
+    <Parameter Name="DESCRIPTION" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="AddUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Birthday" Type="date" Mode="In" />
+    <Parameter Name="Age" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteAward" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetAwardByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetAwardByLetter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LETTER" Type="char" Mode="In" />
+  </Function>
+  <Function Name="GetAwardByTitle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TITLE" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GetAwardByWord" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WORD" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GetAwardFromUser_Award" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID_USER" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetAwards" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetUserByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetUserByLetter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LETTER" Type="char" Mode="In" />
+  </Function>
+  <Function Name="GetUserByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NAME" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GetUserByWord" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WORD" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GetUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Rewarding" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID_user" Type="int" Mode="In" />
+    <Parameter Name="ID_award" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UpdateAward" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="TITLE" Type="varchar" Mode="In" />
+    <Parameter Name="DESCRIPTION" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="UpdateUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="NAME" Type="varchar" Mode="In" />
+    <Parameter Name="BIRTHDAY" Type="date" Mode="In" />
+    <Parameter Name="AGE" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="Хранилище OlympicsModelContainer">
+    <EntitySet Name="Award" EntityType="Self.Award" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User_Award" EntityType="Self.User_Award" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_User_Award_TO_Award" Association="Self.FK_User_Award_TO_Award">
+      <End Role="Award" EntitySet="Award" />
+      <End Role="User_Award" EntitySet="User_Award" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Award_TO_User" Association="Self.FK_User_Award_TO_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="User_Award" EntitySet="User_Award" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
