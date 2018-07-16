@@ -47,7 +47,7 @@ namespace TryMVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(/*[Bind(Include = "id_user,Name,Birthday,Age,UserPhoto")]*/ User user, HttpPostedFileBase image)
+        public ActionResult Create([Bind(Include = "id_user,Name,Birthday,Age,UserPhoto")] User user, HttpPostedFileBase image)
         {
             if (ModelState.IsValid && image != null)
             {
@@ -133,6 +133,46 @@ namespace TryMVC.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        [HttpGet]
+        public ActionResult Rewarding(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            User user = db.Users.Find(id);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+
+            ViewBag.UserId = id;
+
+            return View(user);
+        }
+
+        [HttpPost]
+        public ActionResult Rewarding(Award award, User_Award user_Award, User user)
+        {
+            if (ModelState.IsValid)
+            {
+                if (db.Awards.Find(award.id_award) != null)
+                {
+                    user_Award.id_award = award.id_award;
+                    user_Award.id_user = user.id_user;
+                    
+                    db.User_Award.Add(user_Award);
+
+                    db.SaveChanges();
+
+
+                    return RedirectToAction("Index"); 
+                }
+            }
+
+            return View(user);
         }
     }
 }

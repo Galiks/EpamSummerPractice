@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -46,10 +47,19 @@ namespace TryMVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id_award,Title,Description,AwardImage")] Award award)
+        public ActionResult Create([Bind(Include = "id_award,Title,Description,AwardImage")] Award award, HttpPostedFileBase image)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && image != null)
             {
+                byte[] imageData = null;
+
+                using (var binaryReader = new BinaryReader(image.InputStream))
+                {
+                    imageData = binaryReader.ReadBytes(image.ContentLength);
+                }
+
+                award.AwardImage = imageData;
+
                 db.Awards.Add(award);
                 db.SaveChanges();
                 return RedirectToAction("Index");

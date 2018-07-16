@@ -1,0 +1,17 @@
+﻿@model User
+@{
+    ViewBag.Title = "Rewarding";
+}
+
+<h2>Rewarding</h2>
+@using (Html.BeginForm(@*"Rewarding", "User", FormMethod.Post*@))
+{
+    @Html.Hidden("id_user", ViewBag.Userid as string)
+    <p>Введите номер медали</p>
+    @Html.TextBox("id_award", 1)
+    @*<p>Введите название медали: </p>
+    @Html.TextBox("Title", "Medal")
+    <p>Введите описание награды: </p>
+    @Html.TextBox("Description", "For nothing")*@
+    <p><input type="submit" value="Наградить" /></p>
+}
