@@ -4,14 +4,12 @@
 }
 
 <h2>Rewarding</h2>
-@using (Html.BeginForm(@*"Rewarding", "User", FormMethod.Post*@))
+@using (Html.BeginForm())
 {
+
+    @Html.DropDownList("id_award", ViewBag.Awards as SelectList)
+    
     @Html.Hidden("id_user", ViewBag.Userid as string)
-    <p>Введите номер медали</p>
-    @Html.TextBox("id_award", 1)
-    @*<p>Введите название медали: </p>
-    @Html.TextBox("Title", "Medal")
-    <p>Введите описание награды: </p>
-    @Html.TextBox("Description", "For nothing")*@
+    
     <p><input type="submit" value="Наградить" /></p>
 }

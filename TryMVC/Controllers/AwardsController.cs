@@ -13,7 +13,7 @@ namespace TryMVC.Controllers
 {
     public class AwardsController : Controller
     {
-        private OlympicsEntities db = new OlympicsEntities();
+        private OlympicsEntities1 db = new OlympicsEntities1();
 
         // GET: Awards
         public ActionResult Index()
@@ -132,6 +132,11 @@ namespace TryMVC.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public RedirectToRouteResult HomePage()
+        {
+            return RedirectToRoute(new { controller = "Home", action = "Index" });
         }
     }
 }

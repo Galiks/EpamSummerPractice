@@ -9,7 +9,7 @@ namespace TryMVC.Controllers
 {
     public class HomeController : Controller
     {
-        private OlympicsEntities db = new OlympicsEntities();
+        private OlympicsEntities1 db = new OlympicsEntities1();
 
         // GET: Home
         public ActionResult Index(string action)

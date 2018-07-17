@@ -15,5 +15,6 @@ namespace TryMVC
     {
         public int id_award { get; set; }
         public string Title { get; set; }
+        public byte[] AwardImage { get; set; }
     }
 }

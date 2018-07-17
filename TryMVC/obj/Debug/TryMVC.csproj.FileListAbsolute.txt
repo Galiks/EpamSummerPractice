@@ -75,8 +75,8 @@ E:\Programs\Projects Visual Studio\TryMVC\TryMVC\bin\ru\System.Web.Webpages.Depl
 E:\Programs\Projects Visual Studio\TryMVC\TryMVC\bin\ru\System.Web.Webpages.Razor.resources.dll
 E:\Programs\Projects Visual Studio\TryMVC\TryMVC\bin\ru\System.Web.Helpers.resources.dll
 E:\Programs\Projects Visual Studio\TryMVC\TryMVC\bin\ru\System.Web.Mvc.resources.dll
-E:\Programs\Projects Visual Studio\TryMVC\TryMVC\obj\Debug\TryMVC.csprojAssemblyReference.cache
 E:\Programs\Projects Visual Studio\TryMVC\TryMVC\obj\Debug\TryMVC.csproj.CoreCompileInputs.cache
 E:\Programs\Projects Visual Studio\TryMVC\TryMVC\obj\Debug\TryMVC.csproj.CopyComplete
 E:\Programs\Projects Visual Studio\TryMVC\TryMVC\obj\Debug\TryMVC.dll
 E:\Programs\Projects Visual Studio\TryMVC\TryMVC\obj\Debug\TryMVC.pdb
+E:\Programs\Projects Visual Studio\TryMVC\TryMVC\obj\Debug\TryMVC.csprojAssemblyReference.cache

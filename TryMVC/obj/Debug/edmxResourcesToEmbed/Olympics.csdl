@@ -59,7 +59,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="OlympicsEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="OlympicsEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Awards" EntityType="Self.Award" />
     <EntitySet Name="Users" EntityType="Self.User" />
     <EntitySet Name="User_Award" EntityType="Self.User_Award" />
@@ -154,6 +154,7 @@
   <ComplexType Name="GetAwardFromUser_Award_Result">
     <Property Type="Int32" Name="id_award" Nullable="false" />
     <Property Type="String" Name="Title" Nullable="false" MaxLength="50" />
+    <Property Type="Binary" Name="AwardImage" Nullable="false" />
   </ComplexType>
   <ComplexType Name="GetAwards_Result">
     <Property Type="Int32" Name="id_award" Nullable="false" />

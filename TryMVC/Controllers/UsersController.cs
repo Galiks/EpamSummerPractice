@@ -13,7 +13,7 @@ namespace TryMVC.Controllers
 {
     public class UsersController : Controller
     {
-        private OlympicsEntities db = new OlympicsEntities();
+        private OlympicsEntities1 db = new OlympicsEntities1();
 
         // GET: Users
         public ActionResult Index()
@@ -89,16 +89,46 @@ namespace TryMVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id_user,Name,Birthday,Age,UserPhoto")] User user)
+        public ActionResult Edit([Bind(Include = "id_user,Name,Birthday,Age,UserPhoto")] User user, HttpPostedFileBase image)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(user).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (image != null)
+                {
+                    byte[] imageData = null;
+
+                    using (var binaryReader = new BinaryReader(image.InputStream))
+                    {
+                        imageData = binaryReader.ReadBytes(image.ContentLength);
+                    }
+
+                    user.UserPhoto = imageData;
+
+                    db.Entry(user).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index"); 
+                }
+                if (image == null)
+                {
+                    user.UserPhoto = null;
+
+                    db.Entry(user).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
             return View(user);
         }
+
+        //private FileResult GetStream()
+        //{
+        //    string path = Server.MapPath("~/Images/usualPic.jpg");
+        //    // Объект Stream
+        //    FileStream fs = new FileStream(path, FileMode.Open);
+        //    string file_type = "application/jpg";
+        //    string file_name = "PusualPic.jpg";
+        //    return File(fs, file_type, file_name);
+        //}
 
         // GET: Users/Delete/5
         public ActionResult Delete(int? id)
@@ -150,6 +180,9 @@ namespace TryMVC.Controllers
 
             ViewBag.UserId = id;
 
+            SelectList awards = new SelectList(db.Awards, "id_award", "Title");
+            ViewBag.Awards = awards;
+
             return View(user);
         }
 
@@ -174,5 +207,29 @@ namespace TryMVC.Controllers
 
             return View(user);
         }
+
+        public RedirectToRouteResult HomePage()
+        {
+            return RedirectToRoute(new { controller = "Home", action = "Index" });
+        }
+
+        [HttpGet]
+        public ActionResult ShowAwards(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            User user = db.Users.Find(id);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+
+            List <GetAwardFromUser_Award_Result> awards = db.GetAwardFromUser_Award(user.id_user).ToList();
+
+            return View(awards);
+        }
+
     }
 }

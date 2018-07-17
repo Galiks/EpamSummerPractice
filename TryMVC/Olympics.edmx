@@ -196,7 +196,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="OlympicsEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="OlympicsEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Awards" EntityType="Self.Award" />
           <EntitySet Name="Users" EntityType="Self.User" />
           <EntitySet Name="User_Award" EntityType="Self.User_Award" />
@@ -291,6 +291,7 @@
         <ComplexType Name="GetAwardFromUser_Award_Result">
           <Property Type="Int32" Name="id_award" Nullable="false" />
           <Property Type="String" Name="Title" Nullable="false" MaxLength="50" />
+          <Property Type="Binary" Name="AwardImage" Nullable="false" />
         </ComplexType>
         <ComplexType Name="GetAwards_Result">
           <Property Type="Int32" Name="id_award" Nullable="false" />
@@ -333,7 +334,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище OlympicsModelContainer" CdmEntityContainer="OlympicsEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище OlympicsModelContainer" CdmEntityContainer="OlympicsEntities1">
           <EntitySetMapping Name="Awards">
             <EntityTypeMapping TypeName="OlympicsModel.Award">
               <MappingFragment StoreEntitySet="Award">
@@ -409,6 +410,7 @@
               <ComplexTypeMapping TypeName="OlympicsModel.GetAwardFromUser_Award_Result">
                 <ScalarProperty Name="id_award" ColumnName="id_award" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="AwardImage" ColumnName="AwardImage" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

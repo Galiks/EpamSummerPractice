@@ -103,20 +103,28 @@
     <Content Include="Files\user%27sList.txt" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <EntityDeploy Include="Olympics.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Olympics.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Images\usualPic.jpg" />
+    <Content Include="Olympics.edmx.diagram">
+      <DependentUpon>Olympics.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Olympics.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Olympics.Context.cs</LastGenOutput>
       <DependentUpon>Olympics.edmx</DependentUpon>
+      <LastGenOutput>Olympics.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Olympics.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Olympics.edmx</DependentUpon>
       <LastGenOutput>Olympics.cs</LastGenOutput>
     </Content>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -198,13 +206,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <EntityDeploy Include="Olympics.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Olympics.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Olympics.edmx.diagram">
-      <DependentUpon>Olympics.edmx</DependentUpon>
-    </Content>
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -221,6 +222,8 @@
     <Content Include="Views\Awards\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Users\Rewarding.cshtml" />
+    <Content Include="Views\Users\Testing.cshtml" />
+    <Content Include="Views\Users\ShowAwards.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

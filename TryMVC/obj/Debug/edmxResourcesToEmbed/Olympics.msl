@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Хранилище OlympicsModelContainer" CdmEntityContainer="OlympicsEntities">
+  <EntityContainerMapping StorageEntityContainer="Хранилище OlympicsModelContainer" CdmEntityContainer="OlympicsEntities1">
     <EntitySetMapping Name="Awards">
       <EntityTypeMapping TypeName="OlympicsModel.Award">
         <MappingFragment StoreEntitySet="Award">
@@ -76,6 +76,7 @@
         <ComplexTypeMapping TypeName="OlympicsModel.GetAwardFromUser_Award_Result">
           <ScalarProperty Name="id_award" ColumnName="id_award" />
           <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="AwardImage" ColumnName="AwardImage" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

@@ -15,10 +15,10 @@ namespace TryMVC
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class OlympicsEntities : DbContext
+    public partial class OlympicsEntities1 : DbContext
     {
-        public OlympicsEntities()
-            : base("name=OlympicsEntities")
+        public OlympicsEntities1()
+            : base("name=OlympicsEntities1")
         {
         }
     
