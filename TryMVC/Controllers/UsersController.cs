@@ -65,6 +65,14 @@ namespace TryMVC.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            if (image == null)
+            {
+                user.UserPhoto = null;
+
+                db.Users.Add(user);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
 
             return View(user);
         }
