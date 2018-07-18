@@ -17,5 +17,6 @@ namespace TryMVC
         public string Name { get; set; }
         public System.DateTime Birthday { get; set; }
         public int Age { get; set; }
+        public byte[] UserPhoto { get; set; }
     }
 }

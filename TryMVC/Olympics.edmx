@@ -63,11 +63,13 @@
         <Function Name="AddAward" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="TITLE" Type="varchar" Mode="In" />
           <Parameter Name="DESCRIPTION" Type="varchar" Mode="In" />
+          <Parameter Name="IMAGE" Type="varbinary(max)" Mode="In" />
         </Function>
         <Function Name="AddUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Name" Type="varchar" Mode="In" />
           <Parameter Name="Birthday" Type="date" Mode="In" />
           <Parameter Name="Age" Type="int" Mode="In" />
+          <Parameter Name="IMAGE" Type="varbinary(max)" Mode="In" />
         </Function>
         <Function Name="DeleteAward" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID" Type="int" Mode="In" />
@@ -112,12 +114,14 @@
           <Parameter Name="ID" Type="int" Mode="In" />
           <Parameter Name="TITLE" Type="varchar" Mode="In" />
           <Parameter Name="DESCRIPTION" Type="varchar" Mode="In" />
+          <Parameter Name="IMAGE" Type="varbinary(max)" Mode="In" />
         </Function>
         <Function Name="UpdateUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID" Type="int" Mode="In" />
           <Parameter Name="NAME" Type="varchar" Mode="In" />
           <Parameter Name="BIRTHDAY" Type="date" Mode="In" />
           <Parameter Name="AGE" Type="int" Mode="In" />
+          <Parameter Name="IMAGE" Type="varbinary(max)" Mode="In" />
         </Function>
         <EntityContainer Name="Хранилище OlympicsModelContainer">
           <EntitySet Name="Award" EntityType="Self.Award" Schema="dbo" store:Type="Tables" />
@@ -211,11 +215,13 @@
           <FunctionImport Name="AddAward" ReturnType="Collection(Decimal)">
             <Parameter Name="TITLE" Mode="In" Type="String" />
             <Parameter Name="DESCRIPTION" Mode="In" Type="String" />
+            <Parameter Name="IMAGE" Mode="In" Type="Binary" />
           </FunctionImport>
           <FunctionImport Name="AddUser" ReturnType="Collection(Decimal)">
             <Parameter Name="Name" Mode="In" Type="String" />
             <Parameter Name="Birthday" Mode="In" Type="DateTime" />
             <Parameter Name="Age" Mode="In" Type="Int32" />
+            <Parameter Name="IMAGE" Mode="In" Type="Binary" />
           </FunctionImport>
           <FunctionImport Name="DeleteAward" ReturnType="Collection(Decimal)">
             <Parameter Name="ID" Mode="In" Type="Int32" />
@@ -260,33 +266,39 @@
             <Parameter Name="ID" Mode="In" Type="Int32" />
             <Parameter Name="TITLE" Mode="In" Type="String" />
             <Parameter Name="DESCRIPTION" Mode="In" Type="String" />
+            <Parameter Name="IMAGE" Mode="In" Type="Binary" />
           </FunctionImport>
           <FunctionImport Name="UpdateUser">
             <Parameter Name="ID" Mode="In" Type="Int32" />
             <Parameter Name="NAME" Mode="In" Type="String" />
             <Parameter Name="BIRTHDAY" Mode="In" Type="DateTime" />
             <Parameter Name="AGE" Mode="In" Type="Int32" />
+            <Parameter Name="IMAGE" Mode="In" Type="Binary" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="GetAwardByID_Result">
           <Property Type="Int32" Name="id_award" Nullable="false" />
           <Property Type="String" Name="Title" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Description" Nullable="true" MaxLength="250" />
+          <Property Type="Binary" Name="AwardImage" Nullable="false" />
         </ComplexType>
         <ComplexType Name="GetAwardByLetter_Result">
           <Property Type="Int32" Name="id_award" Nullable="false" />
           <Property Type="String" Name="Title" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Description" Nullable="true" MaxLength="250" />
+          <Property Type="Binary" Name="AwardImage" Nullable="false" />
         </ComplexType>
         <ComplexType Name="GetAwardByTitle_Result">
           <Property Type="Int32" Name="id_award" Nullable="false" />
           <Property Type="String" Name="Title" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Description" Nullable="true" MaxLength="250" />
+          <Property Type="Binary" Name="AwardImage" Nullable="false" />
         </ComplexType>
         <ComplexType Name="GetAwardByWord_Result">
           <Property Type="Int32" Name="id_award" Nullable="false" />
           <Property Type="String" Name="Title" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Description" Nullable="true" MaxLength="250" />
+          <Property Type="Binary" Name="AwardImage" Nullable="false" />
         </ComplexType>
         <ComplexType Name="GetAwardFromUser_Award_Result">
           <Property Type="Int32" Name="id_award" Nullable="false" />
@@ -297,30 +309,35 @@
           <Property Type="Int32" Name="id_award" Nullable="false" />
           <Property Type="String" Name="Title" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Description" Nullable="true" MaxLength="250" />
+          <Property Type="Binary" Name="AwardImage" Nullable="false" />
         </ComplexType>
         <ComplexType Name="GetUserByID_Result">
           <Property Type="Int32" Name="id_user" Nullable="false" />
           <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
           <Property Type="DateTime" Name="Birthday" Nullable="false" />
           <Property Type="Int32" Name="Age" Nullable="false" />
+          <Property Type="Binary" Name="UserPhoto" Nullable="true" />
         </ComplexType>
         <ComplexType Name="GetUserByLetter_Result">
           <Property Type="Int32" Name="id_user" Nullable="false" />
           <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
           <Property Type="DateTime" Name="Birthday" Nullable="false" />
           <Property Type="Int32" Name="Age" Nullable="false" />
+          <Property Type="Binary" Name="UserPhoto" Nullable="true" />
         </ComplexType>
         <ComplexType Name="GetUserByName_Result">
           <Property Type="Int32" Name="id_user" Nullable="false" />
           <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
           <Property Type="DateTime" Name="Birthday" Nullable="false" />
           <Property Type="Int32" Name="Age" Nullable="false" />
+          <Property Type="Binary" Name="UserPhoto" Nullable="true" />
         </ComplexType>
         <ComplexType Name="GetUserByWord_Result">
           <Property Type="Int32" Name="id_user" Nullable="false" />
           <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
           <Property Type="DateTime" Name="Birthday" Nullable="false" />
           <Property Type="Int32" Name="Age" Nullable="false" />
+          <Property Type="Binary" Name="UserPhoto" Nullable="true" />
         </ComplexType>
         <ComplexType Name="GetUsers_Result">
           <Property Type="Int32" Name="id_user" Nullable="false" />
@@ -375,6 +392,7 @@
                 <ScalarProperty Name="id_award" ColumnName="id_award" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="AwardImage" ColumnName="AwardImage" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -384,6 +402,7 @@
                 <ScalarProperty Name="id_award" ColumnName="id_award" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="AwardImage" ColumnName="AwardImage" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -393,6 +412,7 @@
                 <ScalarProperty Name="id_award" ColumnName="id_award" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="AwardImage" ColumnName="AwardImage" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -402,6 +422,7 @@
                 <ScalarProperty Name="id_award" ColumnName="id_award" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="AwardImage" ColumnName="AwardImage" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -420,6 +441,7 @@
                 <ScalarProperty Name="id_award" ColumnName="id_award" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="AwardImage" ColumnName="AwardImage" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -430,6 +452,7 @@
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Birthday" ColumnName="Birthday" />
                 <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="UserPhoto" ColumnName="UserPhoto" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -440,6 +463,7 @@
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Birthday" ColumnName="Birthday" />
                 <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="UserPhoto" ColumnName="UserPhoto" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -450,6 +474,7 @@
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Birthday" ColumnName="Birthday" />
                 <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="UserPhoto" ColumnName="UserPhoto" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -460,6 +485,7 @@
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Birthday" ColumnName="Birthday" />
                 <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="UserPhoto" ColumnName="UserPhoto" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

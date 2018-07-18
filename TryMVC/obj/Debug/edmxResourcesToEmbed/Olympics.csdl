@@ -74,11 +74,13 @@
     <FunctionImport Name="AddAward" ReturnType="Collection(Decimal)">
       <Parameter Name="TITLE" Mode="In" Type="String" />
       <Parameter Name="DESCRIPTION" Mode="In" Type="String" />
+      <Parameter Name="IMAGE" Mode="In" Type="Binary" />
     </FunctionImport>
     <FunctionImport Name="AddUser" ReturnType="Collection(Decimal)">
       <Parameter Name="Name" Mode="In" Type="String" />
       <Parameter Name="Birthday" Mode="In" Type="DateTime" />
       <Parameter Name="Age" Mode="In" Type="Int32" />
+      <Parameter Name="IMAGE" Mode="In" Type="Binary" />
     </FunctionImport>
     <FunctionImport Name="DeleteAward" ReturnType="Collection(Decimal)">
       <Parameter Name="ID" Mode="In" Type="Int32" />
@@ -123,33 +125,39 @@
       <Parameter Name="ID" Mode="In" Type="Int32" />
       <Parameter Name="TITLE" Mode="In" Type="String" />
       <Parameter Name="DESCRIPTION" Mode="In" Type="String" />
+      <Parameter Name="IMAGE" Mode="In" Type="Binary" />
     </FunctionImport>
     <FunctionImport Name="UpdateUser">
       <Parameter Name="ID" Mode="In" Type="Int32" />
       <Parameter Name="NAME" Mode="In" Type="String" />
       <Parameter Name="BIRTHDAY" Mode="In" Type="DateTime" />
       <Parameter Name="AGE" Mode="In" Type="Int32" />
+      <Parameter Name="IMAGE" Mode="In" Type="Binary" />
     </FunctionImport>
   </EntityContainer>
   <ComplexType Name="GetAwardByID_Result">
     <Property Type="Int32" Name="id_award" Nullable="false" />
     <Property Type="String" Name="Title" Nullable="false" MaxLength="50" />
     <Property Type="String" Name="Description" Nullable="true" MaxLength="250" />
+    <Property Type="Binary" Name="AwardImage" Nullable="false" />
   </ComplexType>
   <ComplexType Name="GetAwardByLetter_Result">
     <Property Type="Int32" Name="id_award" Nullable="false" />
     <Property Type="String" Name="Title" Nullable="false" MaxLength="50" />
     <Property Type="String" Name="Description" Nullable="true" MaxLength="250" />
+    <Property Type="Binary" Name="AwardImage" Nullable="false" />
   </ComplexType>
   <ComplexType Name="GetAwardByTitle_Result">
     <Property Type="Int32" Name="id_award" Nullable="false" />
     <Property Type="String" Name="Title" Nullable="false" MaxLength="50" />
     <Property Type="String" Name="Description" Nullable="true" MaxLength="250" />
+    <Property Type="Binary" Name="AwardImage" Nullable="false" />
   </ComplexType>
   <ComplexType Name="GetAwardByWord_Result">
     <Property Type="Int32" Name="id_award" Nullable="false" />
     <Property Type="String" Name="Title" Nullable="false" MaxLength="50" />
     <Property Type="String" Name="Description" Nullable="true" MaxLength="250" />
+    <Property Type="Binary" Name="AwardImage" Nullable="false" />
   </ComplexType>
   <ComplexType Name="GetAwardFromUser_Award_Result">
     <Property Type="Int32" Name="id_award" Nullable="false" />
@@ -160,30 +168,35 @@
     <Property Type="Int32" Name="id_award" Nullable="false" />
     <Property Type="String" Name="Title" Nullable="false" MaxLength="50" />
     <Property Type="String" Name="Description" Nullable="true" MaxLength="250" />
+    <Property Type="Binary" Name="AwardImage" Nullable="false" />
   </ComplexType>
   <ComplexType Name="GetUserByID_Result">
     <Property Type="Int32" Name="id_user" Nullable="false" />
     <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
     <Property Type="DateTime" Name="Birthday" Nullable="false" />
     <Property Type="Int32" Name="Age" Nullable="false" />
+    <Property Type="Binary" Name="UserPhoto" Nullable="true" />
   </ComplexType>
   <ComplexType Name="GetUserByLetter_Result">
     <Property Type="Int32" Name="id_user" Nullable="false" />
     <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
     <Property Type="DateTime" Name="Birthday" Nullable="false" />
     <Property Type="Int32" Name="Age" Nullable="false" />
+    <Property Type="Binary" Name="UserPhoto" Nullable="true" />
   </ComplexType>
   <ComplexType Name="GetUserByName_Result">
     <Property Type="Int32" Name="id_user" Nullable="false" />
     <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
     <Property Type="DateTime" Name="Birthday" Nullable="false" />
     <Property Type="Int32" Name="Age" Nullable="false" />
+    <Property Type="Binary" Name="UserPhoto" Nullable="true" />
   </ComplexType>
   <ComplexType Name="GetUserByWord_Result">
     <Property Type="Int32" Name="id_user" Nullable="false" />
     <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
     <Property Type="DateTime" Name="Birthday" Nullable="false" />
     <Property Type="Int32" Name="Age" Nullable="false" />
+    <Property Type="Binary" Name="UserPhoto" Nullable="true" />
   </ComplexType>
   <ComplexType Name="GetUsers_Result">
     <Property Type="Int32" Name="id_user" Nullable="false" />

@@ -31,7 +31,7 @@ namespace TryMVC
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<User_Award> User_Award { get; set; }
     
-        public virtual ObjectResult<Nullable<decimal>> AddAward(string tITLE, string dESCRIPTION)
+        public virtual ObjectResult<Nullable<decimal>> AddAward(string tITLE, string dESCRIPTION, byte[] iMAGE)
         {
             var tITLEParameter = tITLE != null ?
                 new ObjectParameter("TITLE", tITLE) :
@@ -41,10 +41,14 @@ namespace TryMVC
                 new ObjectParameter("DESCRIPTION", dESCRIPTION) :
                 new ObjectParameter("DESCRIPTION", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("AddAward", tITLEParameter, dESCRIPTIONParameter);
+            var iMAGEParameter = iMAGE != null ?
+                new ObjectParameter("IMAGE", iMAGE) :
+                new ObjectParameter("IMAGE", typeof(byte[]));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("AddAward", tITLEParameter, dESCRIPTIONParameter, iMAGEParameter);
         }
     
-        public virtual ObjectResult<Nullable<decimal>> AddUser(string name, Nullable<System.DateTime> birthday, Nullable<int> age)
+        public virtual ObjectResult<Nullable<decimal>> AddUser(string name, Nullable<System.DateTime> birthday, Nullable<int> age, byte[] iMAGE)
         {
             var nameParameter = name != null ?
                 new ObjectParameter("Name", name) :
@@ -58,7 +62,11 @@ namespace TryMVC
                 new ObjectParameter("Age", age) :
                 new ObjectParameter("Age", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("AddUser", nameParameter, birthdayParameter, ageParameter);
+            var iMAGEParameter = iMAGE != null ?
+                new ObjectParameter("IMAGE", iMAGE) :
+                new ObjectParameter("IMAGE", typeof(byte[]));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("AddUser", nameParameter, birthdayParameter, ageParameter, iMAGEParameter);
         }
     
         public virtual ObjectResult<Nullable<decimal>> DeleteAward(Nullable<int> iD)
@@ -183,7 +191,7 @@ namespace TryMVC
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("Rewarding", iD_userParameter, iD_awardParameter);
         }
     
-        public virtual int UpdateAward(Nullable<int> iD, string tITLE, string dESCRIPTION)
+        public virtual int UpdateAward(Nullable<int> iD, string tITLE, string dESCRIPTION, byte[] iMAGE)
         {
             var iDParameter = iD.HasValue ?
                 new ObjectParameter("ID", iD) :
@@ -197,10 +205,14 @@ namespace TryMVC
                 new ObjectParameter("DESCRIPTION", dESCRIPTION) :
                 new ObjectParameter("DESCRIPTION", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UpdateAward", iDParameter, tITLEParameter, dESCRIPTIONParameter);
+            var iMAGEParameter = iMAGE != null ?
+                new ObjectParameter("IMAGE", iMAGE) :
+                new ObjectParameter("IMAGE", typeof(byte[]));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UpdateAward", iDParameter, tITLEParameter, dESCRIPTIONParameter, iMAGEParameter);
         }
     
-        public virtual int UpdateUser(Nullable<int> iD, string nAME, Nullable<System.DateTime> bIRTHDAY, Nullable<int> aGE)
+        public virtual int UpdateUser(Nullable<int> iD, string nAME, Nullable<System.DateTime> bIRTHDAY, Nullable<int> aGE, byte[] iMAGE)
         {
             var iDParameter = iD.HasValue ?
                 new ObjectParameter("ID", iD) :
@@ -218,7 +230,11 @@ namespace TryMVC
                 new ObjectParameter("AGE", aGE) :
                 new ObjectParameter("AGE", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UpdateUser", iDParameter, nAMEParameter, bIRTHDAYParameter, aGEParameter);
+            var iMAGEParameter = iMAGE != null ?
+                new ObjectParameter("IMAGE", iMAGE) :
+                new ObjectParameter("IMAGE", typeof(byte[]));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UpdateUser", iDParameter, nAMEParameter, bIRTHDAYParameter, aGEParameter, iMAGEParameter);
         }
     }
 }

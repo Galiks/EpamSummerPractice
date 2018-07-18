@@ -79,3 +79,4 @@ E:\Programs\Projects Visual Studio\TryMVC\TryMVC\obj\Debug\TryMVC.csproj.CoreCom
 E:\Programs\Projects Visual Studio\TryMVC\TryMVC\obj\Debug\TryMVC.csproj.CopyComplete
 E:\Programs\Projects Visual Studio\TryMVC\TryMVC\obj\Debug\TryMVC.dll
 E:\Programs\Projects Visual Studio\TryMVC\TryMVC\obj\Debug\TryMVC.pdb
+E:\Programs\Projects Visual Studio\TryMVC\TryMVC\obj\Debug\TryMVC.csprojAssemblyReference.cache

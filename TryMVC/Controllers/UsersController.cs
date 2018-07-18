@@ -16,9 +16,30 @@ namespace TryMVC.Controllers
         private OlympicsEntities1 db = new OlympicsEntities1();
 
         // GET: Users
-        public ActionResult Index()
+        public ActionResult Index(string searchString = null)
         {
-            return View(db.Users.ToList());
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                List<User> users = new List<User>();
+
+                List<GetUserByName_Result> result = db.GetUserByName(searchString).ToList();
+                foreach (var item in result)
+                {
+                    users.Add(new User
+                    {
+                        id_user = item.id_user,
+                        Name = item.Name,
+                        Birthday = item.Birthday,
+                        Age = item.Age,
+                        UserPhoto = item.UserPhoto,
+                    });
+                }
+                return View(users);
+            }
+            else
+            {
+                return View(db.Users.ToList());
+            }
         }
 
         // GET: Users/Details/5

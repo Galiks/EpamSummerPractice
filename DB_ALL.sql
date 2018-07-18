@@ -56,15 +56,20 @@ GO
 Create PROCEDURE AddUser --1
 	@Name varchar(50),
 	@Birthday date,
-	@Age int
+	@Age int,
+	@IMAGE varbinary(MAX) = null
 AS
 BEGIN
 	INSERT INTO [dbo].[User]
            ([Name]
            ,[Birthday]
-           ,[Age])
+           ,[Age]
+		   ,UserPhoto)
      VALUES
-           (@Name, @Birthday, @Age)
+           (@Name, 
+		   @Birthday, 
+		   @Age,
+		   @IMAGE)
 
 	SELECT SCOPE_IDENTITY()
 END
@@ -98,6 +103,7 @@ BEGIN
       ,[Name]
       ,[Birthday]
       ,[Age]
+	  ,UserPhoto
   FROM [Olympics].[dbo].[User]
   WHERE [id_user] = @ID
 END
@@ -116,6 +122,7 @@ BEGIN
       ,[Name]
       ,[Birthday]
       ,[Age]
+	  ,UserPhoto
   FROM [Olympics].[dbo].[User]
   WHERE [Name] LIKE @NAME
   Order By Age Desc
@@ -135,6 +142,7 @@ BEGIN
       ,[Name]
       ,[Birthday]
       ,[Age]
+	  ,UserPhoto
   FROM [Olympics].[dbo].[User]
   WHERE [Name] LIKE @LETTER + '%'
 END
@@ -153,6 +161,7 @@ BEGIN
       ,[Name]
       ,[Birthday]
       ,[Age]
+	  ,UserPhoto
   FROM [Olympics].[dbo].[User]
   WHERE [Name] LIKE (@WORD+'%'+@WORD)
 END
@@ -167,14 +176,16 @@ CREATE PROCEDURE UpdateUser--7
 	@ID int,
 	@NAME varchar(100),
 	@BIRTHDAY date,
-	@AGE int
+	@AGE int,
+	@IMAGE varbinary(MAX) = null
 AS
 BEGIN
 	UPDATE Olympics.dbo.[User]
 	SET 
 	[Name] = @NAME,
 	Birthday = @BIRTHDAY,
-	Age = @AGE
+	Age = @AGE,
+	UserPhoto = @IMAGE
 	WHERE id_user = @ID
 END
 GO
@@ -185,15 +196,18 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE PROCEDURE AddAward --8
 	@TITLE varchar(50),
-	@DESCRIPTION varchar(300)
+	@DESCRIPTION varchar(300) = 'Описание отсутствует',
+	@IMAGE varbinary(MAX)
 AS
 BEGIN
 	INSERT INTO [dbo].[Award]
            ([Title]
-           ,[Description])
+           ,[Description]
+		   ,AwardImage)
      VALUES
            (@TITLE,
-		   @DESCRIPTION)
+		   @DESCRIPTION,
+		   @IMAGE)
 
 	SELECT SCOPE_IDENTITY()
 END
@@ -210,6 +224,7 @@ BEGIN
 	SELECT [id_award]
       ,[Title]
       ,[Description]
+	  ,AwardImage
   FROM [Olympics].[dbo].[Award]
 END
 GO
@@ -222,12 +237,14 @@ GO
 CREATE PROCEDURE UpdateAward --10
 	@ID int,
 	@TITLE varchar(50),
-	@DESCRIPTION varchar(300) = 'Описание отсутствует'
+	@DESCRIPTION varchar(300) = 'Описание отсутствует',
+	@IMAGE varbinary(MAX)
 AS
 BEGIN
 	UPDATE Olympics.dbo.Award
 	SET Title = @TITLE,
-	[Description] = @DESCRIPTION
+	[Description] = @DESCRIPTION,
+	AwardImage = @IMAGE
 	WHERE id_award = @ID
 END
 GO
@@ -244,6 +261,7 @@ BEGIN
 	SELECT [id_award]
       ,[Title]
       ,[Description]
+	  ,AwardImage
   FROM [Olympics].[dbo].[Award]
   WHERE id_award = @ID
 END
@@ -277,6 +295,7 @@ BEGIN
 	SELECT [id_award]
       ,[Title]
       ,[Description]
+	  ,AwardImage
   FROM [Olympics].[dbo].[Award]
   WHERE [Title] LIKE @LETTER + '%'
 END
@@ -297,7 +316,8 @@ AS
 BEGIN
 	SELECT TOP (1000) [id_award]
       ,[Title]
-      ,[Description]
+      ,[Description],
+	  AwardImage
 	FROM [Olympics].[dbo].[Award]
 	WHERE [Title] LIKE (@WORD+'%'+@WORD)
 END
@@ -319,6 +339,7 @@ BEGIN
 	SELECT [id_award]
       ,[Title]
       ,[Description]
+	  ,AwardImage
   FROM [Olympics].[dbo].[Award]
   WHERE [Title] LIKE @TITLE
 END
@@ -363,7 +384,8 @@ CREATE PROCEDURE [dbo].[GetAwardFromUser_Award] --17
 AS
 BEGIN
 	SELECT UA.id_award,
-	A.Title
+	A.Title,
+	A.AwardImage
 	FROM User_Award as UA
 	JOIN Award AS A ON UA.id_award = A.id_award
 	WHERE id_user = @ID_USER

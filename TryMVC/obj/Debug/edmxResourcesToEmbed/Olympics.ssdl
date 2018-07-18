@@ -58,11 +58,13 @@
   <Function Name="AddAward" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="TITLE" Type="varchar" Mode="In" />
     <Parameter Name="DESCRIPTION" Type="varchar" Mode="In" />
+    <Parameter Name="IMAGE" Type="varbinary(max)" Mode="In" />
   </Function>
   <Function Name="AddUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Name" Type="varchar" Mode="In" />
     <Parameter Name="Birthday" Type="date" Mode="In" />
     <Parameter Name="Age" Type="int" Mode="In" />
+    <Parameter Name="IMAGE" Type="varbinary(max)" Mode="In" />
   </Function>
   <Function Name="DeleteAward" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
@@ -107,12 +109,14 @@
     <Parameter Name="ID" Type="int" Mode="In" />
     <Parameter Name="TITLE" Type="varchar" Mode="In" />
     <Parameter Name="DESCRIPTION" Type="varchar" Mode="In" />
+    <Parameter Name="IMAGE" Type="varbinary(max)" Mode="In" />
   </Function>
   <Function Name="UpdateUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
     <Parameter Name="NAME" Type="varchar" Mode="In" />
     <Parameter Name="BIRTHDAY" Type="date" Mode="In" />
     <Parameter Name="AGE" Type="int" Mode="In" />
+    <Parameter Name="IMAGE" Type="varbinary(max)" Mode="In" />
   </Function>
   <EntityContainer Name="Хранилище OlympicsModelContainer">
     <EntitySet Name="Award" EntityType="Self.Award" Schema="dbo" store:Type="Tables" />

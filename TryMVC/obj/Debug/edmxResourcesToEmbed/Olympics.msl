@@ -41,6 +41,7 @@
           <ScalarProperty Name="id_award" ColumnName="id_award" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="AwardImage" ColumnName="AwardImage" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
@@ -50,6 +51,7 @@
           <ScalarProperty Name="id_award" ColumnName="id_award" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="AwardImage" ColumnName="AwardImage" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
@@ -59,6 +61,7 @@
           <ScalarProperty Name="id_award" ColumnName="id_award" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="AwardImage" ColumnName="AwardImage" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
@@ -68,6 +71,7 @@
           <ScalarProperty Name="id_award" ColumnName="id_award" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="AwardImage" ColumnName="AwardImage" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
@@ -86,6 +90,7 @@
           <ScalarProperty Name="id_award" ColumnName="id_award" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="AwardImage" ColumnName="AwardImage" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
@@ -96,6 +101,7 @@
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Birthday" ColumnName="Birthday" />
           <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="UserPhoto" ColumnName="UserPhoto" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
@@ -106,6 +112,7 @@
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Birthday" ColumnName="Birthday" />
           <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="UserPhoto" ColumnName="UserPhoto" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
@@ -116,6 +123,7 @@
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Birthday" ColumnName="Birthday" />
           <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="UserPhoto" ColumnName="UserPhoto" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
@@ -126,6 +134,7 @@
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Birthday" ColumnName="Birthday" />
           <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="UserPhoto" ColumnName="UserPhoto" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

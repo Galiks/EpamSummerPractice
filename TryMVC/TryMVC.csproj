@@ -106,11 +106,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Images\usualPic.jpg" />
     <EntityDeploy Include="Olympics.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Olympics.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Images\usualPic.jpg" />
     <Content Include="Olympics.edmx.diagram">
       <DependentUpon>Olympics.edmx</DependentUpon>
     </Content>
