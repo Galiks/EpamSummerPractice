@@ -4,12 +4,21 @@
 }
 
 <h2>Rewarding</h2>
+
 @using (Html.BeginForm())
 {
-
+    <div class="col-md-6">
     @Html.DropDownList("id_award", ViewBag.Awards as SelectList)
-    
+    </div>
     @Html.Hidden("id_user", ViewBag.Userid as string)
     
+    <div class="col-md-6">
     <p><input type="submit" value="Наградить" /></p>
+    </div>
+
 }
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

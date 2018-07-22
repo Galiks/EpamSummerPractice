@@ -11,18 +11,33 @@ namespace TryMVC
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Award
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+
+        private const string PatternForRegex = "[a-zA-Z0-9- ]+$";
+
         public Award()
         {
             this.User_Award = new HashSet<User_Award>();
         }
     
+        [ScaffoldColumn(false)]
         public int id_award { get; set; }
+
+        [Required]
+        [StringLength(50, MinimumLength = 2, ErrorMessage = "Incorrect Title")]
+        [RegularExpression(PatternForRegex, ErrorMessage = "Incorrect Title")]
+        [DataType(DataType.Text)]
         public string Title { get; set; }
+
+        [StringLength(250, MinimumLength = 0, ErrorMessage = "Incorrect Description")]
+        [DataType(DataType.Text)]
         public string Description { get; set; }
+
+        [Required]
         public byte[] AwardImage { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

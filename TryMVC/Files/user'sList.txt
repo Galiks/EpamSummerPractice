@@ -1,1 +1,2 @@
-User Pasha with ID: 6 was born in 1996.12.4. His age is 21
+User Pasha with ID: 1 was born in 1996.12.4. His age is 21
+User Petr with ID: 2 was born in 2000.12.4. His age is 17

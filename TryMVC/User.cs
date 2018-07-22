@@ -11,19 +11,41 @@ namespace TryMVC
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.Text.RegularExpressions;
+
     public partial class User
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+
+        private const string PatternForRegex = "[a-zA-Zа-яА-Я]+$";
+
         public User()
         {
             this.User_Award = new HashSet<User_Award>();
         }
     
+        [ScaffoldColumn(false)]
         public int id_user { get; set; }
+
+        [Display(Name = "First name")]
+        [DataType(DataType.Text)]
+        [Required]
+        [RegularExpression(PatternForRegex, ErrorMessage = "Incoorect Name")]
+        [StringLength(50, MinimumLength = 2, ErrorMessage = "Incorrect Name")]
         public string Name { get; set; }
+
+        [Required]
+        [Display(Name = "Date of birthday")]
+        [DisplayFormat(DataFormatString = "{0:d}")]
+        [DataType(DataType.Date)]
         public System.DateTime Birthday { get; set; }
+
+        [Display(Name = "Age")]
+        [Range(0, 150, ErrorMessage = "Incorrect Age")]
         public int Age { get; set; }
+
+        [Display(Name = "Photo")]
         public byte[] UserPhoto { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

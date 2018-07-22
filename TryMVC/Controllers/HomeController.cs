@@ -12,20 +12,8 @@ namespace TryMVC.Controllers
         private OlympicsEntities1 db = new OlympicsEntities1();
 
         // GET: Home
-        public ActionResult Index(string action)
+        public ActionResult Index()
         {
-            if (action == "Users")
-            {
-                return Redirect("Users/Index");
-            }
-            if (action == "Award")
-            {
-                return Redirect("Awards/Index");
-            }
-            if (action == "File")
-            {
-                return GetFile();
-            }
             return View();
         }
 

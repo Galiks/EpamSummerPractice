@@ -19,7 +19,6 @@ E:\Programs\Projects Visual Studio\TryMVC\TryMVC\bin\roslyn\Microsoft.DiaSymRead
 E:\Programs\Projects Visual Studio\TryMVC\TryMVC\bin\roslyn\Microsoft.VisualBasic.Core.targets
 E:\Programs\Projects Visual Studio\TryMVC\TryMVC\bin\roslyn\Microsoft.Win32.Primitives.dll
 E:\Programs\Projects Visual Studio\TryMVC\TryMVC\bin\roslyn\System.AppContext.dll
-E:\Programs\Projects Visual Studio\TryMVC\TryMVC\bin\roslyn\System.Collections.Immutable.dll
 E:\Programs\Projects Visual Studio\TryMVC\TryMVC\bin\roslyn\System.Console.dll
 E:\Programs\Projects Visual Studio\TryMVC\TryMVC\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
 E:\Programs\Projects Visual Studio\TryMVC\TryMVC\bin\roslyn\System.Diagnostics.Process.dll
@@ -79,4 +78,5 @@ E:\Programs\Projects Visual Studio\TryMVC\TryMVC\obj\Debug\TryMVC.csproj.CoreCom
 E:\Programs\Projects Visual Studio\TryMVC\TryMVC\obj\Debug\TryMVC.csproj.CopyComplete
 E:\Programs\Projects Visual Studio\TryMVC\TryMVC\obj\Debug\TryMVC.dll
 E:\Programs\Projects Visual Studio\TryMVC\TryMVC\obj\Debug\TryMVC.pdb
+E:\Programs\Projects Visual Studio\TryMVC\TryMVC\bin\roslyn\System.Collections.Immutable.dll
 E:\Programs\Projects Visual Studio\TryMVC\TryMVC\obj\Debug\TryMVC.csprojAssemblyReference.cache
