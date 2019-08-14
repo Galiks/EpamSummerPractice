@@ -19,3 +19,26 @@ E:\Programs\Projects Visual Studio\UserAward\UserAward.BLL.Interface\bin\Debug\M
 E:\Programs\Projects Visual Studio\UserAward\UserAward.BLL.Interface\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
 E:\Programs\Projects Visual Studio\UserAward\UserAward.BLL.Interface\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
 E:\Programs\Projects Visual Studio\UserAward\UserAward.BLL.Interface\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+E:\Документы\GitHub\EPAM\UserAward.BLL.Interface\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+E:\Документы\GitHub\EPAM\UserAward.BLL.Interface\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+E:\Документы\GitHub\EPAM\UserAward.BLL.Interface\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+E:\Документы\GitHub\EPAM\UserAward.BLL.Interface\bin\Debug\ru\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll
+E:\Документы\GitHub\EPAM\UserAward.BLL.Interface\bin\Debug\ru\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll
+E:\Документы\GitHub\EPAM\UserAward.BLL.Interface\bin\Debug\ru\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
+E:\Документы\GitHub\EPAM\UserAward.BLL.Interface\bin\Debug\UserAward.BLL.Interface.dll
+E:\Документы\GitHub\EPAM\UserAward.BLL.Interface\bin\Debug\UserAward.BLL.Interface.pdb
+E:\Документы\GitHub\EPAM\UserAward.BLL.Interface\bin\Debug\Entity.dll
+E:\Документы\GitHub\EPAM\UserAward.BLL.Interface\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+E:\Документы\GitHub\EPAM\UserAward.BLL.Interface\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+E:\Документы\GitHub\EPAM\UserAward.BLL.Interface\bin\Debug\Ninject.dll
+E:\Документы\GitHub\EPAM\UserAward.BLL.Interface\bin\Debug\Entity.pdb
+E:\Документы\GitHub\EPAM\UserAward.BLL.Interface\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+E:\Документы\GitHub\EPAM\UserAward.BLL.Interface\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+E:\Документы\GitHub\EPAM\UserAward.BLL.Interface\bin\Debug\Ninject.xml
+E:\Документы\GitHub\EPAM\UserAward.BLL.Interface\obj\Debug\UserAward.BLL.Interface.csprojAssemblyReference.cache
+E:\Документы\GitHub\EPAM\UserAward.BLL.Interface\obj\Debug\UserAward.BLL.Interface.csproj.CoreCompileInputs.cache
+E:\Документы\GitHub\EPAM\UserAward.BLL.Interface\obj\Debug\UserAward.BLL.Interface.csproj.CopyComplete
+E:\Документы\GitHub\EPAM\UserAward.BLL.Interface\obj\Debug\UserAward.BLL.Interface.dll
+E:\Документы\GitHub\EPAM\UserAward.BLL.Interface\obj\Debug\UserAward.BLL.Interface.pdb
+E:\Документы\GitHub\EPAM\UserAward.BLL.Interface\bin\Debug\Newtonsoft.Json.dll
+E:\Документы\GitHub\EPAM\UserAward.BLL.Interface\bin\Debug\Newtonsoft.Json.xml

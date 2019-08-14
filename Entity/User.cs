@@ -27,5 +27,10 @@ namespace Entity
 
             return value.Name.Equals(this.Name) ^ value.Birthday.Equals(this.Birthday) ^ value.Age.Equals(this.Age);
         }
+
+        public override string ToString()
+        {
+            return $"{IdUser}; {Name}; {Birthday}; {Age}";
+        }
     }
 }

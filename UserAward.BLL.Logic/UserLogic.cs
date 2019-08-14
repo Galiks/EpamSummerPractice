@@ -2,12 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UserAward.BLL.Interface;
-using UserAward.DAL.DAO;
-using UserAward.DAL.Interface;
-using Ninject;
+using UserAward.DAL_Interface.Interface;
 
 namespace UserAward.BLL.Logic
 {

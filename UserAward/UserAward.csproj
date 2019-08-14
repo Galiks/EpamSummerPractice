@@ -41,6 +41,9 @@
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\MSTest.TestFramework.1.3.2\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
     </Reference>
@@ -77,6 +80,14 @@
     <ProjectReference Include="..\UserAward.Container\UserAward.Container.csproj">
       <Project>{2a485a3e-76b4-4133-b230-6df9b3d8615e}</Project>
       <Name>UserAward.Container</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UserAward.DAL.Interface\UserAward.DAL.Interface.csproj">
+      <Project>{EC9AC36D-EFB0-4250-A213-D6A2CF219BAF}</Project>
+      <Name>UserAward.DAL.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UserAward.DAL_File.DAO\UserAward.DAL_File.DAO.csproj">
+      <Project>{77B0A63B-9DFD-4358-99EA-6BA68561FF4B}</Project>
+      <Name>UserAward.DAL_File.DAO</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

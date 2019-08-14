@@ -1,13 +1,8 @@
 ﻿using Ninject;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UserAward.BLL.Interface;
 using UserAward.BLL.Logic;
-using UserAward.DAL.DAO;
-using UserAward.DAL.Interface;
+using UserAward.DAL_Database.DAO;
+using UserAward.DAL_Interface.Interface;
 
 namespace UserAward.Container
 {
@@ -19,10 +14,10 @@ namespace UserAward.Container
 
         public static void Registration()
         {
-            _kernel.Bind<IUserDao>().To<UserDao>();
+            _kernel.Bind<IUserDao>().To<UserDaoDatabase>();
             _kernel.Bind<IUserLogic>().To<UserLogic>();
 
-            _kernel.Bind<IAwardDao>().To<AwardDao>();
+            _kernel.Bind<IAwardDao>().To<AwardDaoDatabase>();
             _kernel.Bind<IAwardLogic>().To<AwardLogic>();
         }
     }

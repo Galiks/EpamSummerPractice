@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UserAward.DAL.Interface
+namespace UserAward.DAL_Interface.Interface
 {
     public interface IAwardDao
     {

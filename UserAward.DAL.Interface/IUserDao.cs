@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Entity;
 
-namespace UserAward.DAL.DAO
+namespace UserAward.DAL_Interface.Interface
 {
     public interface IUserDao
     {

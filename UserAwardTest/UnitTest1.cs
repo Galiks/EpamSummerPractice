@@ -3,7 +3,7 @@ using Entity;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Ninject;
 using UserAward.BLL.Logic;
-using UserAward.DAL.DAO;
+using UserAward.DAL_Interface.Interface;
 
 namespace UserAwardTest
 {

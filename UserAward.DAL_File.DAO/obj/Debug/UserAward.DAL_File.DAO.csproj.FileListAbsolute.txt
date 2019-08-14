@@ -1,0 +1,16 @@
+E:\Документы\GitHub\EPAM\UserAward.DAL_File.DAO\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+E:\Документы\GitHub\EPAM\UserAward.DAL_File.DAO\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+E:\Документы\GitHub\EPAM\UserAward.DAL_File.DAO\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+E:\Документы\GitHub\EPAM\UserAward.DAL_File.DAO\bin\Debug\UserAward.DAL_File.DAO.dll
+E:\Документы\GitHub\EPAM\UserAward.DAL_File.DAO\bin\Debug\UserAward.DAL_File.DAO.pdb
+E:\Документы\GitHub\EPAM\UserAward.DAL_File.DAO\bin\Debug\Entity.dll
+E:\Документы\GitHub\EPAM\UserAward.DAL_File.DAO\bin\Debug\Entity.pdb
+E:\Документы\GitHub\EPAM\UserAward.DAL_File.DAO\obj\Debug\UserAward.DAL_File.DAO.csprojAssemblyReference.cache
+E:\Документы\GitHub\EPAM\UserAward.DAL_File.DAO\obj\Debug\UserAward.DAL_File.DAO.csproj.CoreCompileInputs.cache
+E:\Документы\GitHub\EPAM\UserAward.DAL_File.DAO\obj\Debug\UserAward.DAL_File.DAO.csproj.CopyComplete
+E:\Документы\GitHub\EPAM\UserAward.DAL_File.DAO\obj\Debug\UserAward.DAL_File.DAO.dll
+E:\Документы\GitHub\EPAM\UserAward.DAL_File.DAO\obj\Debug\UserAward.DAL_File.DAO.pdb
+E:\Документы\GitHub\EPAM\UserAward.DAL_File.DAO\bin\Debug\UserAward.DAL.Interface.dll
+E:\Документы\GitHub\EPAM\UserAward.DAL_File.DAO\bin\Debug\UserAward.DAL.Interface.pdb
+E:\Документы\GitHub\EPAM\UserAward.DAL_File.DAO\bin\Debug\Newtonsoft.Json.dll
+E:\Документы\GitHub\EPAM\UserAward.DAL_File.DAO\bin\Debug\Newtonsoft.Json.xml

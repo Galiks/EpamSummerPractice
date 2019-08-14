@@ -1,4 +1,5 @@
-﻿using Ninject;
+﻿using Entity;
+using Ninject;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,8 @@ using System.Threading.Tasks;
 using UserAward.BLL.Interface;
 using UserAward.BLL.Logic;
 using UserAward.Container;
+using UserAward.DAL_File.DAO;
+using UserAward.DAL_Interface.Interface;
 
 namespace userAward
 {
@@ -22,7 +25,27 @@ namespace userAward
             userLogic = NinjectCommon.Kernel.Get<IUserLogic>();
             awardLogic = NinjectCommon.Kernel.Get<IAwardLogic>();
 
-            StartMethod();
+            //StartMethod();
+            IAwardDao awardDaoFile = new AwardDaoFile();
+            UserDaoFile userDaoFile = new UserDaoFile(awardDaoFile);
+            var user = new User { IdUser = 2, Name = "Pasha", Birthday = DateTime.Now, Age = 20 };
+
+            var awardsByUser = userDaoFile.GetAwardFromUserAward(user.IdUser);
+
+            foreach (var item in awardsByUser)
+            {
+                Console.WriteLine(item.Key + " : " + item.Value);
+            }
+
+            //userDaoFile.Reawrding(user, 2);
+            //userDaoFile.Reawrding(user, 3);
+            //userDaoFile.AddUser(new User { IdUser = 2, Name = "Pasha", Birthday = DateTime.Now, Age = 20 });
+            //foreach (var item in userDaoFile.GetUsers())
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            Console.Read();
 
         }
 

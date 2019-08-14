@@ -27,3 +27,34 @@ E:\Programs\Projects Visual Studio\UserAward\UserAward.Container\bin\Debug\Micro
 E:\Programs\Projects Visual Studio\UserAward\UserAward.Container\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
 E:\Programs\Projects Visual Studio\UserAward\UserAward.Container\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
 E:\Programs\Projects Visual Studio\UserAward\UserAward.Container\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+E:\Документы\GitHub\EPAM\UserAward.Container\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+E:\Документы\GitHub\EPAM\UserAward.Container\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+E:\Документы\GitHub\EPAM\UserAward.Container\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+E:\Документы\GitHub\EPAM\UserAward.Container\bin\Debug\ru\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll
+E:\Документы\GitHub\EPAM\UserAward.Container\bin\Debug\ru\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll
+E:\Документы\GitHub\EPAM\UserAward.Container\bin\Debug\ru\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
+E:\Документы\GitHub\EPAM\UserAward.Container\bin\Debug\UserAward.Container.dll
+E:\Документы\GitHub\EPAM\UserAward.Container\bin\Debug\UserAward.Container.pdb
+E:\Документы\GitHub\EPAM\UserAward.Container\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+E:\Документы\GitHub\EPAM\UserAward.Container\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+E:\Документы\GitHub\EPAM\UserAward.Container\bin\Debug\Ninject.dll
+E:\Документы\GitHub\EPAM\UserAward.Container\bin\Debug\UserAward.BLL.Interface.dll
+E:\Документы\GitHub\EPAM\UserAward.Container\bin\Debug\UserAward.BLL.Logic.dll
+E:\Документы\GitHub\EPAM\UserAward.Container\bin\Debug\UserAward.DAL.Interface.dll
+E:\Документы\GitHub\EPAM\UserAward.Container\bin\Debug\Entity.dll
+E:\Документы\GitHub\EPAM\UserAward.Container\bin\Debug\UserAward.BLL.Interface.pdb
+E:\Документы\GitHub\EPAM\UserAward.Container\bin\Debug\UserAward.BLL.Logic.pdb
+E:\Документы\GitHub\EPAM\UserAward.Container\bin\Debug\UserAward.DAL.Interface.pdb
+E:\Документы\GitHub\EPAM\UserAward.Container\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+E:\Документы\GitHub\EPAM\UserAward.Container\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+E:\Документы\GitHub\EPAM\UserAward.Container\bin\Debug\Ninject.xml
+E:\Документы\GitHub\EPAM\UserAward.Container\bin\Debug\Entity.pdb
+E:\Документы\GitHub\EPAM\UserAward.Container\obj\Debug\UserAward.Container.csprojAssemblyReference.cache
+E:\Документы\GitHub\EPAM\UserAward.Container\obj\Debug\UserAward.Container.csproj.CoreCompileInputs.cache
+E:\Документы\GitHub\EPAM\UserAward.Container\obj\Debug\UserAward.Container.csproj.CopyComplete
+E:\Документы\GitHub\EPAM\UserAward.Container\obj\Debug\UserAward.Container.dll
+E:\Документы\GitHub\EPAM\UserAward.Container\obj\Debug\UserAward.Container.pdb
+E:\Документы\GitHub\EPAM\UserAward.Container\bin\Debug\UserAward.DAL_Database.DAO.dll
+E:\Документы\GitHub\EPAM\UserAward.Container\bin\Debug\UserAward.DAL_Database.DAO.pdb
+E:\Документы\GitHub\EPAM\UserAward.Container\bin\Debug\Newtonsoft.Json.dll
+E:\Документы\GitHub\EPAM\UserAward.Container\bin\Debug\Newtonsoft.Json.xml
